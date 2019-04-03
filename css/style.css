@@ -1,0 +1,177 @@
+:root{
+	--texte-defaut: Calibri, cursive;
+	--indie-flower: 'Indie Flower', cursive;
+	--color-blue: deepskyblue;
+}
+
+/*Format texte*/
+
+.error{
+	color: red;
+}
+
+a{
+	color: black;
+}
+
+a.menu{
+	text-decoration:none;
+}
+
+a.menu:visited{
+    color: black;
+}
+
+div.menu{
+	font-family: var(--texte-defaut);
+	font-weight: bold;
+}
+
+li.menu{
+	font-family: var(--texte-defaut);
+	font-weight: bold;
+	text-align: center;
+}
+
+li{
+	font-family: var(--texte-defaut);
+	text-align: justify;
+}
+
+#resume{
+  display: none;
+}
+
+p{
+	font-family: var(--texte-defaut);
+	text-align: justify;
+}
+
+p.article{
+	text-align: center;
+}
+
+p.outro{
+	font-family: var(--indie-flower);
+	font-weight: bold;
+	text-align: center;
+}
+
+form p{
+  text-align: left;
+}
+
+div.liste p{
+  text-align: left;
+}
+
+p.warning{
+  color: red;
+}
+
+h1{
+	font-family: var(--indie-flower);
+	text-align: center;
+}
+
+h2{
+	font-family: var(--texte-defaut);
+	text-align: center;
+}
+
+input.afficher{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+input.impression{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+input.retour{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+#reset{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+#submit{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: var(--color-blue);
+}
+
+#connexion{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+#connexionadm{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: var(--color-blue);
+}
+
+#nouvelarticle{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: var(--color-blue);
+}
+
+#supprimerarticle{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+#modifier{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+#deconnexion{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
+footer{
+	font-family: var(--texte-defaut);
+}
+
+footer p{
+	font-size: 0.9em;
+  text-align: center;
+}
+
+table{
+  font-family: var(--texte-defaut);
+  border-collapse:collapse;
+  border-color: black;
+  border-style: solid;
+}
+
+tr{
+  border-color: black;
+  border-style: solid;
+}
+
+td{
+  border-color: black;
+  border-style: solid;
+}
+
+th{
+  border-color: black;
+  border-style: solid;
+}
+

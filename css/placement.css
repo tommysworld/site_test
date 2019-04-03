@@ -1,0 +1,252 @@
+:root{
+	--texte-defaut: Calibri, cursive;
+	--indie-flower: 'Indie Flower', cursive;
+	--color-blue: deepskyblue;
+}
+
+/*Format page*/
+
+body{
+	margin: 1%;
+	background-image: radial-gradient(var(--color-blue), grey);
+}
+
+div.banniere{
+	display: flex;
+	flex-direction: row;
+}
+
+div.responsive{
+	display: flex;
+}
+
+nav.menu{
+	display:flex;
+}
+
+ul.menu{
+	list-style-type: none;
+  padding-inline-start: 0px; /*supprimer intervalle de depart des listes*/
+  padding: 0%;
+	display: flex;
+}
+
+li.menu{
+	background-image:linear-gradient(to right, var(--color-blue), grey);
+	border-radius: 5px;
+}
+
+ul{
+  padding-inline-start: 0px;
+}
+
+article{
+	border-style: solid;
+	border-radius: 10px;
+	border-color: var(--color-blue);
+	padding: 1%;
+}
+
+div.presentation{
+	display: flex;
+}
+
+div.acceuil{
+	display: flex;
+}
+
+div.produit{
+	display: flex;
+}
+
+div.description{
+	display: flex;
+	flex-direction:column;
+	margin:auto;
+}
+
+div.ligne{
+	display: flex;
+	padding: 0.5%;
+}
+
+div.paragraphe{
+	display: flex;
+	flex-direction: column;
+}
+
+input.afficher{
+  display: block;
+  width: 10%;
+  min-width: 11em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+}
+
+input.impression{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 5em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+}
+
+input.retour{
+  display: block;
+  margin: 1em auto;
+  width: 20%;
+  min-width: 5em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+}
+
+section.informations{
+  display: flex;
+}
+
+#carte{
+  margin: auto;
+}
+
+#reset{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 5em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+}
+
+#connexion{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 6em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
+#deconnexion{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 6em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
+#connexionadm{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 6em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
+#nouvelarticle{
+  display: block;
+  margin: 1em auto;
+  width: 20%;
+  min-width: 6em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
+#supprimerarticle{
+  display: block;
+  margin: 1em auto;
+  width: 20%;
+  min-width: 6em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
+#submit{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 5em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+}
+
+div.liste{
+  display: flex;
+}
+
+div.capcha{
+  display: flex;
+  flex-direction : column;
+}
+
+div.articles{
+  display: flex;
+  flex-direction : column;
+}
+
+p.lien{
+  margin: 0% 3%;
+}
+
+p.article{
+  margin: auto;
+}
+
+p.textarea{
+  display: flex;
+  flex-direction: column;
+}
+
+p.bouton{
+  display: flex;
+}
+
+h1.banniere{
+	width: 80%;
+	margin: auto;
+}
+
+footer.p{
+  margin: 0.9em auto;
+}
+
+footer{
+	margin: 1%;
+  border-radius: 5px;
+	display:flex;
+	justify-content: space-around;
+  background-color: var(--color-blue);
+}
+
+table{
+  margin: auto;
+}
+
+tr{
+  width: 30%;
+}
+
+td{
+  width: 30%;
+}
+
+th{
+  width: 30%;
+}
