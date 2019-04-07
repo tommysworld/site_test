@@ -33,48 +33,45 @@
         </ul>
       </nav>
       <article>
-	    <?php     include("inc/connexion.inc.php");	
-          $page = 'backoffice.php';
-          if(isset($_GET['connexionadm'])) { 
-          // on vérifie que le champ "Login" n'est pas vide
-          if(empty($_GET['login'])) {?>
-            <p><?php echo "Le champ login est vide."; ?></p>
-          <?php } else {
-          // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
-          if(empty($_GET['password'])) {
-            echo "Le champ Mot de passe est vide.";
-         } else {
-			 if(empty($_GET['capcha'])) {
-            echo "Le champ capcha n'est pas rempli";
-         } else {
-            // les champs sont bien GETé et pas vide, on sécurise les données entrées par le membre:
-            $login = $_GET['login']; 
-            $password = $_GET['password'];
-            // on fait maintenant la requête dans la base de données pour rechercher si ces données existe et correspondent:
-            $requete = "SELECT * FROM user WHERE login = '".$login."' AND password = '".$password."'";		
-            $resultat = $con->query($requete);
-              if($connexion = $resultat->fetch()) {
-                echo '<script type="text/javascript">';
-                echo 'window.location.href="'.$page.'";';
-                echo '</script>';
+	    <?php include("inc/connexion.inc.php");	
+        $page = 'backoffice.php';
+        if(isset($_GET['connexionadm'])) { 
+        // on vérifie que le champ "Login" n'est pas vide
+          if(empty($_GET['login'])) {
+            echo "Le champ login est vide.";
+          } else {
+            // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
+            if(empty($_GET['password'])) {
+              echo "Le champ Mot de passe est vide.";
+            } else {
+              if(empty($_GET['capcha'])) {
+                echo "Le champ capcha n'est pas rempli";
+              } else {
+                // les champs sont bien GETé et pas vide, on sécurise les données entrées par le membre:
+                $login = $_GET['login']; 
+                $password = $_GET['password'];
+                // on fait maintenant la requête dans la base de données pour rechercher si ces données existe et correspondent:
+                $requete = "SELECT * FROM user WHERE login = '".$login."' AND password = '".$password."'";		
+                $resultat = $con->query($requete);
+                if($connexion = $resultat->fetch()) {
+                  echo '<script type="text/javascript">';
+                  echo 'window.location.href="'.$page.'";';
+                  echo '</script>';
                 } else {
-					echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
-                       }
+                  echo "<p>Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.</p>";
                 }
+              }
             }
-            }
-		  }
-		  
-        ?>
-        <input class="retour" type="button" value="&larr; Revenir à la page de connexion" onclick="self.location.href='connexion.php'">	
-		</article>
-        
-	</div>
+          }
+        }
+      ?>
+      <input class="retour" type="button" value="&larr; Revenir à la page de connexion" onclick="self.location.href='connexion.php'">	
+      </article> 
+    </div>
 		<footer>
 			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
 		</footer>
     <script src="js/formulaire.js"></script>
     <script src="js/fonction.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy0McvUlCnwFbzzzokeavKbZlN7JDXsFc&callback=initialiseMap"></script>
 	</body>
 </html>

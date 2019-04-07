@@ -40,38 +40,37 @@
 
         <form name="formulaire" action="connexion2.php" method="GET">
           <p>*informations obligatoires</p>
-		    <div id="login">
-              <label for="login">*Login:</label>
-              <input type="text" name="login" onblur="changeBord(this)" required>
-            </div>			  
- 	        <div id="password">
-              <label for="password">*Mot de passe:</label>
-              <input type="password" name="password" onblur="changeBord(this)" required>
-            </div>	
-            <div id="nom">
-              <label for="nom">Nom:</label>
-              <input type="text" name="nom" onblur="changeBord(this);">
-            </div>	
-            <div id="sectionCapcha" class="capcha">
-              <p>Capcha : (Pour eviter les spams ainsi que les robots)</p>
-              <p>
-              <label id="labelCapcha" for="capcha"></label>
-              <input type="text" id="capcha" name="capcha" onblur="testCapcha(this);" onkeypress="testCapcha(this);">
-              </p>
-              <p>Exemple : 5 + 5, vous notez 10.</p>
-             </div>
-        </article>	
-	    <p class="bouton">
-	        <input id="connexionadm" type="submit" name="connexionadm" value="Connexion">
+          <p>
+            <label for="login">*Login:</label>
+            <input type="text" name="login" onblur="changeBord(this)" required>
+          </p>			  
+ 	        <p>
+            <label for="password">*Mot de passe:</label>
+            <input type="password" name="password" onblur="changeBord(this)" required>
+          </p>	
+          <p>
+            <label for="nom">Nom:</label>
+            <input type="text" name="nom" onblur="changeBord(this);">
+          </p>	
+          <div id="sectionCapcha" class="capcha">
+            <p>Capcha : (Pour eviter les spams ainsi que les robots)</p>
+            <p>
+            <label id="labelCapcha" for="capcha"></label>
+            <input type="text" id="capcha" name="capcha" onblur="testCapcha(this);" onkeypress="testCapcha(this);">
+            </p>
+            <p>Exemple : 5 + 5, vous notez 10.</p>
+          </div>
+          <p class="bouton">
+            <input id="connexionadm" type="submit" name="connexionadm" value="Connexion">
             <input id="reset" type="reset" value="Effacer" onclick="return resetForm();">
-	    </p>
+          </p>
         </form>
-	</div>
+      </article>
+    </div>
 		<footer>
 			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
 		</footer>
     <script src="js/formulaire.js"></script>
     <script src="js/fonction.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy0McvUlCnwFbzzzokeavKbZlN7JDXsFc&callback=initialiseMap"></script>
 	</body>
 </html>
