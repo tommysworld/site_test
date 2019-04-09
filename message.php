@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 
 <html lang='fr'>
@@ -19,6 +21,9 @@
 				<h1 class="banniere">Tommy's World, résultat du formulaire</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
+				  <?php include("inc/connexion.inc.php");
+		            if(!isset($_GET["submit"])){
+					echo $_SESSION['login']; }?>
 				</form>
 			</div>
 		</header>
@@ -33,11 +38,12 @@
         </ul>
       </nav>
       <article>
+	   <?php if(isset($_GET["submit"])){ ?>
         <h2>Message envoyé</h2>
         <p class="message">
           Nom et prenom : 
-          <?php
-            echo $_GET['nomPrenom'];
+          <?php 
+              echo $_GET['nomPrenom'];
           ?>
         </p>
         <p class="message">
@@ -69,12 +75,60 @@
           ?>
         </p>
         <p class="message">
-          Date envoi : 
+          Date envoi :  
           <?php
-            echo $_GET['dateEnvoi'];
-          ?>
-        </p>
-        <input class="retour" type="button" value="&larr; Retour" onclick="self.location.href='contact.html'">
+		  $dateEnvoi = $_GET['dateEnvoi'];
+          echo $dateEnvoi
+		  ?>
+		</p>
+		<input class="retour" type="button" value="&larr; Retour" onclick="self.location.href='contact.html'">
+		<?php
+			$nomPrenom = $_GET ['nomPrenom'];
+			$numPortable = $_GET ['numPortable'];
+			$message = $_GET ['message'];
+			$adresseMail = $_GET ['adresseMail'];
+		    $requete = 'insert into message (usermessage, telephone, message, email, datereceptionmessage) values ("'.$nomPrenom.'", "'.$numPortable.'", "'.$message.'", "'.$adresseMail.'", "'.$dateEnvoi.'" )';
+		    $con->exec($requete);
+			};
+		?>
+		                           			
+        <?php if(!isset($_GET["submit"])){
+              echo "<p>Liste des messages postés </p>";
+		
+		      //nb de lignes contenu dans résultat
+
+              echo "<table border='1'>\n";
+		      echo "<tr>\n";
+		      echo "<td><p>Nom, prénom de l'utilisateur</p></td>";
+              echo "<td><p>Téléphone</p></td>";
+		      echo "<td><p>message</p></td>";
+		      echo "<td><p>Email</p></td>";
+		      echo "<td><p>Date de réception du message</p></td>";
+		      echo "</tr>\n";
+		
+              $requete = "select usermessage, telephone, message, email, datereceptionmessage from message";			
+              $resultat = $con->query($requete);
+		
+	          while ($nbutilisateurs = $resultat->fetch()) {
+		
+		      echo "<tr>\n";
+		      echo "<td>".$nbutilisateurs['usermessage']. "</td>\n";
+              echo "<td>".$nbutilisateurs['telephone']. "</td>\n";
+		      echo "<td>".$nbutilisateurs['message']. "</td>\n";
+		      echo "<td>".$nbutilisateurs['email']. "</td>\n";
+              echo "<td>".$nbutilisateurs['datereceptionmessage']."</a>";
+		      echo "</tr>\n";
+		                                      }
+		      echo "</table>\n";		?>
+			  <p class="bouton">
+		        <input class="retour" type="button" value="télécharger les messages sous le format csv" onclick="self.location.href='test.php'">	
+                <input class="retour" type="button" value="Retour au backoffice" onclick="self.location.href='backoffice.php'">	
+              </p>				
+		      <?php }
+		      ?>
+		  
+              
+
       </article>
     </div>
 		<footer>

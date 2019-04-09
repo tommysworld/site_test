@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 
 <html lang='fr'>
@@ -33,18 +35,31 @@
         </ul>
       </nav>
       <article>
-		<?php include("inc/connexion.inc.php");	
-          $date = date("Y-m-d H:i:s");		
-	      if(isset($_POST["Modifier"])){
-		    $requete = 'update content set titre ="'.$_POST ['titre'].'", categoriearticle ="'.$_POST ['categoriearticle'].'", datemodificationarticle="'.$date.'" where idarticle ="'.$_POST ['idarticle'].'"';
+		<?php include("inc/connexion.inc.php");
+          $date = date("Y-m-d");		
+	      if(isset($_GET["modifier"])){
+		    $requete = 'update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'" where idarticle ="'.$_GET ['idarticle'].'"';
 		    $con->exec($requete);
-		    echo "Les modifications ont bien été prises en compte";
-
-		};
-		
+		    echo "Les modifications ont bien été prises en compte";};
+	      if(isset($_GET["supprimer"])){
+		    $requete = 'delete from content where idarticle ="'.$_GET ['idarticle'].'"';
+		    $con->exec($requete);
+		    echo "La suppression a bien été prise en compte";};
+	    ?>
+			
+		<?php
+		if(isset($_GET["ajouter"])){
+			$titre = $_GET ['titre'];
+			$categoriearticle = $_GET ['categoriearticle'];
+			$contenuarticle = $_GET ['contenuarticle'];
+			$login = $_SESSION ['login'];
+		    $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'")';
+		    $con->exec($requete);
+		    echo "L'article a bien été ajouté";
+		                           };			
 		?>
       </article>
-      <input class="retour" type="button" value="&larr; Retour" onclick="self.location.href='backoffice.php'">
+      <input class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">
     </div>
 		<footer>
 			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
