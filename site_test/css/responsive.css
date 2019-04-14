@@ -1,0 +1,278 @@
+:root{
+	--texte-defaut: Calibri, cursive;
+	--indie-flower: 'Indie Flower', cursive;
+	--color-blue: deepskyblue;
+  --marge-cote: 3%;
+  --marge-paragraphe-bureau: 0.8% var(--marge-cote);
+  --marge-paragraphe-portable: 2% var(--marge-cote);
+  --marge-bureau: 1%;
+  --marge-portable: 3%;
+}
+
+/*Format responsive*/
+
+@media (min-width:601px){ /*format bureau*/
+  
+  a.logo{
+    width: 20%;
+  }
+  
+  div.img-banniere{
+    width: 80%;
+    height: auto;
+  }
+	
+	nav.menu{
+		flex-direction: row;
+		width: 100%;
+    margin: auto;
+	}
+	
+	ul.menu{
+		flex-grow: 1;
+	}
+  
+  a.menu{
+		flex-grow: 1;
+  }
+  
+  li.menu{
+		height: 1.5em;
+		line-height: 1.5em;
+    font-size: 1.2em;
+    margin: var(--marge-bureau);
+		flex-grow: 1;
+	}
+  
+  article{
+    margin: var(--marge-bureau);
+  }
+  
+  section{
+    margin: var(--marge-bureau);
+  }
+  
+  input.afficher{
+    margin: var(--marge-bureau);
+  }
+	
+	div.article{
+		width: 40%;
+    margin: auto;
+    margin-bottom: 0%;
+	}
+	
+	div.produit{
+		flex-direction: row;
+	}
+  
+  img.produit{
+    margin: auto 1%;
+  }
+  
+	img.profil{
+		margin: auto 1%;
+	}
+	
+	div.responsive{
+		flex-direction: column;
+	}
+	
+	div.description{
+		width: 100%;		
+	}
+  
+  div.liste{
+    flex-direction: row;
+  }
+  
+  form{
+    margin: var(--marge-bureau);
+  }
+  
+  p.bouton{
+    flex-direction: row;
+  }
+	
+	h1{
+		font-size: 3.2em;
+	}
+	
+	p{
+    margin: var(--marge-paragraphe-bureau);
+		font-size: 1.3em;
+	}
+  
+  ul{
+    margin: var(--marge-bureau);
+  }
+  
+  li{
+    margin: var(--marge-paragraphe-bureau);
+    font-size: 1.3em;
+  }
+	
+	p.outro{
+		font-size: 3em;
+	}
+  
+  #carte{
+    width: 30%;
+    height: 300px;
+  }
+}
+
+@media (max-width:600px){ /*format telephone*/
+	a.logo{
+    width: 25%;
+  }
+  
+  div.img-banniere{
+    width: 75%;
+    height: auto;
+  }
+  
+	nav.menu{
+		flex-direction: column;
+		width: 20%;
+    min-width: 5em;
+    margin: var(--marge-portable);
+	}
+	
+	ul.menu{
+		flex-direction: column;
+	}
+  
+  a.menu{
+		flex-grow: 1;
+  }
+	
+	li.menu{
+		width: 100%;
+    height: 3em;
+    font-size: 1em;
+    margin: 10% 3%;
+	}
+  
+  li{
+    margin: var(--marge-paragraphe-portable);
+    font-size: 1em;
+  }
+	
+	div.responsive{
+		flex-direction: row;
+	}
+  
+  article{
+    margin: var(--marge-portable);
+  }
+  
+  section{
+    margin: var(--marge-portable);
+  }
+  
+  table{
+    margin: var(--marge-portable);
+  }
+  
+  input.afficher{
+    margin: auto;
+  }
+	
+	div.ligne{
+		flex-direction:column;
+	}
+  
+  div.article{
+    margin: 2% auto;
+	}
+	
+	div.presentation{
+		flex-direction: column;
+	}
+	
+	img.profil{
+		margin: auto;
+	}
+	
+	div.produit{
+		flex-direction:column;
+	}
+	
+	img.produit{
+		margin: auto;
+	}
+  
+  div.liste{
+    flex-direction: column;
+  }
+  
+  form{
+    margin: var(--marge-portable);
+  }
+  
+  textarea{
+    width: 90%;
+  }
+  
+  p.bouton{
+    flex-direction: column;
+  }
+  
+  p.message{
+    text-align: left;
+  }
+	
+	h1{
+		font-size: 2.5em;
+	}
+	
+	h1.banniere{
+		font-size: 2.5em;
+	}
+	
+	p{
+		font-size: 1em;
+    margin: var(--marge-paragraphe-portable);
+	}
+	
+	p.outro{
+		font-size: 2em;
+	}
+  
+  section.informations{
+    flex-direction: column;
+  }
+  
+  #carte{
+    width: 75%;
+    height: 100px;
+  }
+}
+
+
+@media print{
+  header{
+    display: none;
+  }
+  
+  nav.menu{
+    display: none;
+  }
+  
+  article{
+    border-style: none;
+  }
+  
+  footer{
+    display:none;
+  }
+  
+  input.impression{
+    display:none;
+  }
+  
+  input.retour{
+    display: none;
+  }
+}

@@ -109,19 +109,7 @@ input.retour{
   background-color: var(--color-blue);
 }
 
-#ajouter{
-  font-family: var(--texte-defaut);
-  font-weight: bold;
-  background-color: var(--color-blue);
-}
-
 #connexion{
-  font-family: var(--texte-defaut);
-  font-weight: bold;
-  background-color: grey;
-}
-
-#supprimer{
   font-family: var(--texte-defaut);
   font-weight: bold;
   background-color: grey;
@@ -139,18 +127,18 @@ input.retour{
   background-color: var(--color-blue);
 }
 
+#supprimerarticle{
+  font-family: var(--texte-defaut);
+  font-weight: bold;
+  background-color: grey;
+}
+
 #modifier{
   font-family: var(--texte-defaut);
   font-weight: bold;
   background-color: grey;
 }
 #deconnexion{
-  font-family: var(--texte-defaut);
-  font-weight: bold;
-  background-color: grey;
-}
-
-#supprimerarticle{
   font-family: var(--texte-defaut);
   font-weight: bold;
   background-color: grey;

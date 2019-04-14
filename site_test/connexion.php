@@ -1,6 +1,7 @@
-<?php session_start();
-?>
+
+
 <!DOCTYPE html>
+
 <html lang='fr'>
 	<head>
 		<meta charset="UTF-8"/>
@@ -35,45 +36,36 @@
         </ul>
       </nav>
       <article>
-	    <?php     include("inc/connexion.inc.php");	
-          $page = 'backoffice.php';
-          if(isset($_GET['connexionadm'])) { 
-          // on vérifie que le champ "Login" n'est pas vide
-          if(empty($_GET['login'])) {?>
-            <p><?php echo "Le champ login est vide."; ?></p>
-          <?php } else {
-          // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
-          if(empty($_GET['password'])) {
-            echo "Le champ Mot de passe est vide.";
-         } else {
-			 if(empty($_GET['capcha'])) {
-            echo "Le champ capcha n'est pas rempli";
-         } else {
-            // les champs sont bien GETé et pas vide, on sécurise les données entrées par le membre:
-            $login = htmlspecialchars ($_GET['login']); 
-            $password = htmlspecialchars ($_GET['password']);
-            // on fait maintenant la requête dans la base de données pour rechercher si ces données existe et correspondent:
-            $requete = "SELECT * FROM user WHERE login = '".$login."' AND password = '".$password."'";	
-            $resultat =	$con->prepare($requete);		
-            $resultat = $con->query($requete);		
-              if($connexion = $resultat->fetch()) {
-                $_SESSION['login']  = htmlspecialchars ($_GET['login']);
-			    $_SESSION['password']  = htmlspecialchars ($_GET['password']);
-                echo '<script type="text/javascript">';
-                echo 'window.location.href="'.$page.'";';
-                echo '</script>';
-                } else {
-					echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
-                       }
-                }
-            }
-            }
-		  }
-		  
-        ?>
-        <input class="retour" type="button" value="&larr; Revenir à la page de connexion" onclick="self.location.href='connexion.php'">	
-		</article>
-        
+        <h2>Connexion administrateur</h2>
+
+        <form name="formulaire" action="connexion2.php" method="GET">
+          <p>*informations obligatoires</p>
+		    <div id="login">
+              <label for="login">*Login:</label>
+              <input type="text" name="login" onblur="changeBord(this)" required>
+            </div>			  
+ 	        <div id="password">
+              <label for="password">*Mot de passe:</label>
+              <input type="password" name="password" onblur="changeBord(this)" required>
+            </div>	
+            <div id="nom">
+              <label for="nom">Nom:</label>
+              <input type="text" name="nom" onblur="changeBord(this);">
+            </div>	
+            <div id="sectionCapcha" class="capcha">
+              <p>Capcha : (Pour eviter les spams ainsi que les robots)</p>
+              <p>
+              <label id="labelCapcha" for="capcha"></label>
+              <input type="text" id="capcha" name="capcha" onblur="testCapcha(this);" onkeypress="testCapcha(this);">
+              </p>
+              <p>Exemple : 5 + 5, vous notez 10.</p>
+             </div>
+        </article>	
+	    <p class="bouton">
+	        <input id="connexionadm" type="submit" name="connexionadm" value="Connexion">
+            <input id="reset" type="reset" value="Effacer" onclick="return resetForm();">
+	    </p>
+        </form>
 	</div>
 		<footer>
 			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>

@@ -42,15 +42,27 @@
         <h2>Message envoyé</h2>
         <p class="message">
           Nom et prenom : 
-          <?php 
-              echo $_GET['nomPrenom'];
+          <?php              
+		    $nomPrenom = htmlentities($_GET ['nomPrenom']);
+            $caracteres = "#^[{}%]+$#";
+			if (strpbrk($nomPrenom, $caracteres)) {
+		      $tableau1 = array("{","}","%");
+			  $tableau2 = array("","","");
           ?>
-        </p>
+	      <p><?php echo $nomPrenom = str_replace($tableau1, $tableau2, $nomPrenom);?></p>
+	      <p><?php echo "Les caractères spéciaux {} % ont été supprimés de votre saisie";?></p>
+	      <?php
+           } else
+	       {
+	         echo $nomPrenom;
+	       }
+		  ?>	
+        </p>		
         <p class="message">
           Numero de portable : 
           <?php
             if($_GET['numPortable']!=NULL){
-              echo $_GET['numPortable'];
+              echo htmlspecialchars ($_GET['numPortable']);
             }else{
               echo "Non communiqué";
             }
@@ -62,54 +74,67 @@
             echo $_GET['typeDemande'];
           ?>
         </p>
-        <p class="message">
+        <p class="message"> 
           Message : 
-          <?php
-            echo $_GET['message'];
+          <?php             
+		    $message = htmlentities($_GET ['message']);
+            $caracteres = "#^[{}%]+$#";
+	          if (strpbrk($message, $caracteres)) {
+		        $tableau1 = array("{","}","%");
+			    $tableau2 = array("","","");
           ?>
+		  <p><?php echo $message = str_replace($tableau1, $tableau2, $message);?></p>
+		  <p><?php echo "Les caractères spéciaux {} % ont été supprimés de votre saisie";?></p>
+		  <?php
+            } else
+		    {
+		      echo $message;
+		    }
+		  ?>
         </p>
         <p class="message">
           Adresse mail : 
           <?php
-            echo $_GET['adresseMail'];
+            echo htmlentities ($_GET['adresseMail']);
           ?>
         </p>
         <p class="message">
           Date envoi :  
           <?php
-		  $dateEnvoi = $_GET['dateEnvoi'];
-          echo $dateEnvoi
+		    setlocale(LC_TIME, 'fr_FR');
+		    date_default_timezone_set('Europe/Paris');
+		    $dateEnvoi = strftime('%Y-%m-%d %H:%M');
+            echo $dateEnvoi
 		  ?>
 		</p>
 		<input class="retour" type="button" value="&larr; Retour" onclick="self.location.href='contact.html'">
 		<?php
-			$nomPrenom = $_GET ['nomPrenom'];
-			$numPortable = $_GET ['numPortable'];
-			$message = $_GET ['message'];
-			$adresseMail = $_GET ['adresseMail'];
+			$numPortable = htmlentities($_GET ['numPortable']);
+			$message = htmlentities($_GET ['message']);
+			$adresseMail = htmlentities($_GET ['adresseMail']);
 		    $requete = 'insert into message (usermessage, telephone, message, email, datereceptionmessage) values ("'.$nomPrenom.'", "'.$numPortable.'", "'.$message.'", "'.$adresseMail.'", "'.$dateEnvoi.'" )';
 		    $con->exec($requete);
 			};
 		?>
 		                           			
         <?php if(!isset($_GET["submit"])){
-              echo "<p>Liste des messages postés </p>";
+            echo "<p>Liste des messages postés </p>";
 		
-		      //nb de lignes contenu dans résultat
+		    //nb de lignes contenu dans résultat
 
-              echo "<table border='1'>\n";
-		      echo "<tr>\n";
-		      echo "<td><p>Nom, prénom de l'utilisateur</p></td>";
-              echo "<td><p>Téléphone</p></td>";
-		      echo "<td><p>message</p></td>";
-		      echo "<td><p>Email</p></td>";
-		      echo "<td><p>Date de réception du message</p></td>";
-		      echo "</tr>\n";
+            echo "<table border='1'>\n";
+		    echo "<tr>\n";
+		    echo "<td><p>Nom, prénom de l'utilisateur</p></td>";
+            echo "<td><p>Téléphone</p></td>";
+		    echo "<td><p>message</p></td>";
+		    echo "<td><p>Email</p></td>";
+		    echo "<td><p>Date de réception du message</p></td>";
+		    echo "</tr>\n";
 		
-              $requete = "select usermessage, telephone, message, email, datereceptionmessage from message";			
-              $resultat = $con->query($requete);
+            $requete = "select usermessage, telephone, message, email, datereceptionmessage from message";			
+            $resultat = $con->query($requete);
 		
-	          while ($nbutilisateurs = $resultat->fetch()) {
+	        while ($nbutilisateurs = $resultat->fetch()) {
 		
 		      echo "<tr>\n";
 		      echo "<td>".$nbutilisateurs['usermessage']. "</td>\n";
@@ -125,14 +150,14 @@
                 <input class="retour" type="button" value="Retour au backoffice" onclick="self.location.href='backoffice.php'">	
               </p>				
 		      <?php }
-		      ?>
-		  
-              
+		      ?>		               
 
       </article>
     </div>
 		<footer>
 			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
 		</footer>
+		<script src="js/formulaire.js"></script>
+        <script src="js/fonction.js"></script>
 	</body>
 </html>

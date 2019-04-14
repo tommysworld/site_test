@@ -45,7 +45,8 @@
           <?php 
 		    $requete = 'select titre, categoriearticle, datemodificationarticle, contenuarticle from content where idarticle ="'.$_GET ['idarticle'].'"';		                
 				//Exécution d'une requete SQL avec PDO
-                      $resultat = $con->query($requete);		
+                      $resultat = $con->prepare($requete);
+					  $resultat = $con->query($requete);		
 	                  while ($nbutilisateurs = $resultat->fetch()) {
 
                 // on affiche le résultat pour le visiteur		
@@ -76,8 +77,8 @@
 					  					  
 					  <input type="hidden" name="idarticle" value="<?php echo "".$_GET ['idarticle'].""?>">
 					  <p class="bouton">
-					    <input type="submit" value="Modifier" name="modifier" id="modifier" onclick="return modifyarticle()";>>
-						<input type="submit" value="Supprimer" name="supprimer" id="supprimer" onclick="return deletearticle()";>		                
+					    <input type="submit" value="Modifier" name="modifier" id="modifier" onclick="return modifyarticle();">
+						<input type="submit" value="Supprimer" name="supprimer" id="supprimer" onclick="return deletearticle();">		                
                       </p>	
                       <input id="retour2" class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">					  
                       </form>
@@ -111,7 +112,7 @@
 		                            echo "</table>\n";
 	                          ?>	
 					          <p class="bouton">
-		                        <input type="submit" value="Ajouter" name="ajouter" id="ajouter" onclick="return insertarticle()">
+		                        <input type="submit" value="Ajouter" name="ajouter" id="ajouter" onclick="return insertarticle();">
 						        <input id="retour" class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">
 						      </p>
 						    </form>

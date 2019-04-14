@@ -136,8 +136,29 @@ section.informations{
 #deconnexion{
   display: block;
   margin: 1em auto;
-  width: 10%;
-  min-width: 6em;
+  width: 25%;
+  min-width: 7em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
+#supprimer{
+  display: block;
+  margin: 1em auto;
+  width: 20%;
+  min-width: 7em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+#retour, #retour2 {
+  display: block;
+  margin: 1em auto;
+  width: 35%;
+  min-width: 9em;
   height: auto;
   border-style: outset;
   border-radius: 5px;
@@ -166,6 +187,17 @@ section.informations{
   
 }
 
+#ajouter{
+  display: block;
+  margin: 1em auto;
+  width: 20%;
+  min-width: 6em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+  
+}
+
 #supprimerarticle{
   display: block;
   margin: 1em auto;
@@ -178,6 +210,16 @@ section.informations{
 }
 
 #submit{
+  display: block;
+  margin: 1em auto;
+  width: 10%;
+  min-width: 5em;
+  height: auto;
+  border-style: outset;
+  border-radius: 5px;
+}
+
+#modifier{
   display: block;
   margin: 1em auto;
   width: 10%;

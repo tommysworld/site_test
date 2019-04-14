@@ -3,9 +3,6 @@ var $testNum = true;
 var $testMess = true;
 var $testAdresse = true;
 var $testForm = true;
-var $testlogin = true;
-var $testlogin2 = true;
-var $testpassword = true;
 var $testCapcha = true;
 var $resultCapcha = 0;
 
@@ -45,7 +42,7 @@ function controlform(){
     if($minute<=9){
       $minute = "0"+$minute;
     }
-    document.getElementById("dateEnvoi").value = $jour+"/"+$mois+"/"+$annee+" "+$heure+":"+$minute;
+    document.getElementById("dateEnvoi").value = $annee+"-"+$mois+"-"+$jour+" "+$heure+":"+$minute;
     $testForm = true;
   }
   return $testForm;
@@ -97,7 +94,7 @@ function testNomPrenom(){
 }
 
 function testNumPortable(){
-  if(document.getElementById("numPortable").value !== null){
+  if(document.getElementById("numPortable").value != null){
     if(document.getElementById("numPortable").value.match(/[a-zA-Z]/)){
       document.getElementById("error-num-portable").innerHTML = "Attention, pas de lettres dans le numéro";
       document.getElementById("numPortable").style.backgroundColor = "#FFB6C1";
@@ -136,20 +133,17 @@ function testNumPortable(){
 
 function testMessage(){
   if(document.getElementById("message").value.match(/[{}%]/)){
-    document.getElementById("error-message").innerHTML = "Attention, pas de caractéres spéciaux ( { } % ).";
+    document.getElementById("error-message").innerHTML = "Attention, pas de caractéres spéciaux ( { } % )";
     document.getElementById("message").style.backgroundColor = "#FFB6C1";
     document.getElementById("message").style.borderColor = "initial";
     $testMess = false;
-  }
-  
-  else{
+  }else{
     document.getElementById("error-message").innerHTML = "";
     document.getElementById("message").style.backgroundColor = "white";
     $testMess = true;
   }
   return $testMess;
 }
-
 
 function testAdresseMail(){
   if(!document.getElementById("adresseMail").value.match(/^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/i)){
@@ -178,7 +172,7 @@ function createCapcha(){
         document.getElementById("labelCapcha").innerHTML = "2+3 = ";
         break;
       case 3:
-        $resultCapcha = 24;
+        $resultCapcha = 22;
         document.getElementById("labelCapcha").innerHTML = "9+13 = ";
         break;
       default:
@@ -223,6 +217,37 @@ function espaceSupp($saisie){
 function resetForm(){
   return confirm('Voulez vous vraiment tout effacer ?');
 }
+//Sécurisation connexion backoffice
+if($saisie.name=="login"){
+    if(!$testForm){
+      if(testlogin()){
+        $saisie.style.borderColor = "#32CD32";
+      }
+    }
+  }
+}
+
+function testlogin(){
+  if(document.getElementById("login").value.match(/[0-9]/)){
+	document.getElementById("error-nom-prenom").innerHTML = "Attention, pas de chiffres dans le nom ou le prénom";
+    document.getElementById("nomPrenom").style.backgroundColor = "#FFB6C1";
+    document.getElementById("nomPrenom").style.borderColor = "initial";
+    $testNom = false;
+	}
+ if(document.getElementById("login").value.length > 25 && <2){
+	document.getElementById("error-nom-prenom").innerHTML = "Attention, pas de chiffres dans le nom ou le prénom";
+    document.getElementById("login").style.backgroundColor = "#FFB6C1";
+    document.getElementById("login").style.borderColor = "initial";
+    $testNom = false;
+	}else{
+    document.getElementById("error-nom-prenom").innerHTML = "";
+    document.getElementById("nomPrenom").style.backgroundColor = "white";
+    $testNom = true;
+  }
+  return $testNom;
+}
+
+
 
 // Controle insertion, modification, suppression article backoffice
 function insertarticle(){
@@ -237,95 +262,6 @@ function modifyarticle(){
   return confirm('Voulez vous vraiment modifier cet article ?');
 }
 
-function changebordBackOffice($saisie){
-  if($saisie.name=="login"){
-    if(!$testForm){
-      if(testlogin()){
-        $saisie.style.borderColor = "#32CD32";
-      }
-    }
-  }
-  if($saisie.name=="password"){
-    if(!$testForm){
-      if(testpassword()){
-        $saisie.style.borderColor = "#32CD32";
-      }
-    }
-  }
-}
 
-function testlogin(){
-  if(document.getElementById("login").value.match(/[{}%]/)) {
-	document.getElementById("error-login").innerHTML = "Attention, pas de caractères spéciaux dans le login";
-    document.getElementById("login").style.backgroundColor = "#FFB6C1";
-    document.getElementById("login").style.borderColor = "initial";
-	$testlogin = false;
-  }
-  
-    else if(document.getElementById("login").value.length<2) {
-	document.getElementById("error-login").innerHTML = "Attention, le login a moins de deux caractères";
-    document.getElementById("login").style.backgroundColor = "#FFB6C1";
-    document.getElementById("login").style.borderColor = "initial";
-	$testlogin = false;
-	}
-	
-	else if(document.getElementById("login").value.length>20) {
-	document.getElementById("error-login").innerHTML = "Attention, le login a plus de vingt caractères";
-    document.getElementById("login").style.backgroundColor = "#FFB6C1";
-    document.getElementById("login").style.borderColor = "initial";
-	$testlogin = false;
-	}
-	else{
-    document.getElementById("error-login").innerHTML = "";
-    document.getElementById("login").style.backgroundColor = "white";
-    $testlogin = true;
-  }
-  return $testlogin;
-}
 
-function testpassword(){
-    if(document.getElementById("password").value.length<2) {
-	document.getElementById("error-password").innerHTML = "Attention, le mot de passe a moins de deux caractères";
-    document.getElementById("password").style.backgroundColor = "#FFB6C1";
-    document.getElementById("login").style.borderColor = "initial";
-	$testlogin = false;
-	}
-	
-	else if(document.getElementById("password").value.length>20) {
-	document.getElementById("error-password").innerHTML = "Attention, le mot de passe a plus de vingt caractères";
-    document.getElementById("password").style.backgroundColor = "#FFB6C1";
-    document.getElementById("password").style.borderColor = "initial";
-	$testlogin = false;
-	}
-	else{
-    document.getElementById("error-password").innerHTML = "";
-    document.getElementById("password").style.backgroundColor = "white";
-    $testlogin = true;
-  }
-  return $testpassword;
-}
    
-   function controlformBackOffice(){
-     testlogin();
-     testpassword();
-     testCapcha();
-     if(!$testlogin || !$testpassword || !$testCapcha){
-      $testForm = false;
-     }else{
-      var $dateEnvoi = new Date();
-      var $annee = $dateEnvoi.getFullYear();
-      var $mois = $dateEnvoi.getMonth()+1;
-      if($mois<=9){
-        $mois = "0"+$mois;
-                  }
-      var $jour = $dateEnvoi.getDate();
-      var $heure = $dateEnvoi.getHours();
-      var $minute = $dateEnvoi.getMinutes();
-      if($minute<=9){
-      $minute = "0"+$minute;
-                      }
-      document.getElementById("dateEnvoi").value = $jour+"/"+$mois+"/"+$annee+" "+$heure+":"+$minute;
-      $testForm = true;
-          }
-      return $testForm;
-}

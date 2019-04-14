@@ -55,7 +55,8 @@
 		echo "</tr>\n";
 		
         $requete = "select titre, categoriearticle, idarticle, datemodificationarticle, nomusermodificationarticle, contenuarticle from content";			
-        $resultat = $con->query($requete);
+        $resultat = $con->prepare($requete);
+		$resultat = $con->query($requete);
 		
 	    while ($nbutilisateurs = $resultat->fetch()) {
 

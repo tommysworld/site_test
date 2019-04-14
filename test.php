@@ -8,6 +8,7 @@
   
   // On affiche une fois l'entête sans boucle
   $requete = "select usermessage, telephone, message, email, datereceptionmessage from message";			
+  $resultat = $con->prepare($requete);
   $resultat = $con->query($requete);
 		
   while ($nbutilisateurs = $resultat->fetch()) {

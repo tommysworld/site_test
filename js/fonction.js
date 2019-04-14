@@ -35,7 +35,7 @@ function dateFichier(){
   if($minute<=9){
     $minute = "0"+$minute;
   }
-  document.getElementById("dateFichier").innerHTML="Fichier mis à jour : "+$jour+"/"+$mois+"/"+$annee+" "+$heure+":"+$minute;
+  document.getElementById("dateFichier").innerHTML="Fichier mis à jour : "+$annee+"-"+$mois+"-"+$jour+" "+$heure+":"+$minute;
 }
 
 function impressEcran(){

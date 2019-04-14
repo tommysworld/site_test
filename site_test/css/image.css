@@ -1,0 +1,124 @@
+:root{
+	--texte-defaut: Calibri, cursive;
+	--indie-flower: 'Indie Flower', cursive;
+	--color-blue: deepskyblue;
+}
+
+/* Format images*/
+img.logo{
+	width: 100%;
+	height: auto;
+}
+
+a.logo{
+	height: auto;
+	margin: auto;
+}
+
+div.img-banniere{
+	border-radius: 10px;
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+	background-repeat:no-repeat;
+  margin: 1%;
+}
+
+a.article{
+  display: block;
+  margin: auto;
+}
+
+img.article{
+	width: 30%;
+  display: block;
+	margin: auto;
+}
+
+img.produit{
+	width: 30%;
+	height: 30%;
+}
+
+img.profil{
+	width: 30%;
+	height: 30%;
+	margin: auto;
+}
+
+/*Format animation*/
+a.menu li{
+	transition-property: background-image, color;
+	transition-duration: 0.5s;
+}
+
+ a.menu li:hover{
+	background-image: none;
+	color: white;
+}
+
+a img.article{
+	transition-property: opacity;
+	transition-duration: 0.5s;
+}
+
+a img.article:hover{
+	opacity: 0.5;
+}
+
+input.afficher{
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+input.afficher:hover{
+	color: white;
+}
+
+input.retour{
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+input.retour:hover{
+	color: white;
+}
+
+#reset{
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+#reset:hover{
+	color: white;
+}
+
+#submit{
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+#submit:hover{
+	color: white;
+}
+
+input.impression{
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+input.impression:hover{
+	color: white;
+}
+
+div.img-banniere{
+	animation: change 10s cubic-bezier(1,-1,0,2) 0s infinite alternate;
+}
+
+@keyframes change{
+  0%{
+    background-image: url("../img/banniere-1.jpg");
+  }
+  100%{
+    background-image: url("../img/banniere-2.jpg");
+  }
+}

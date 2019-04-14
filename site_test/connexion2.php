@@ -1,5 +1,3 @@
-<?php session_start();
-?>
 <!DOCTYPE html>
 <html lang='fr'>
 	<head>
@@ -50,15 +48,12 @@
             echo "Le champ capcha n'est pas rempli";
          } else {
             // les champs sont bien GETé et pas vide, on sécurise les données entrées par le membre:
-            $login = htmlspecialchars ($_GET['login']); 
-            $password = htmlspecialchars ($_GET['password']);
+            $login = $_GET['login']; 
+            $password = $_GET['password'];
             // on fait maintenant la requête dans la base de données pour rechercher si ces données existe et correspondent:
-            $requete = "SELECT * FROM user WHERE login = '".$login."' AND password = '".$password."'";	
-            $resultat =	$con->prepare($requete);		
-            $resultat = $con->query($requete);		
+            $requete = "SELECT * FROM user WHERE login = '".$login."' AND password = '".$password."'";		
+            $resultat = $con->query($requete);
               if($connexion = $resultat->fetch()) {
-                $_SESSION['login']  = htmlspecialchars ($_GET['login']);
-			    $_SESSION['password']  = htmlspecialchars ($_GET['password']);
                 echo '<script type="text/javascript">';
                 echo 'window.location.href="'.$page.'";';
                 echo '</script>';
