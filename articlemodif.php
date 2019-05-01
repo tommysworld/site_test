@@ -1,3 +1,5 @@
+<?php session_start();
+?>	
 <!DOCTYPE html>
 
 <html lang='fr'>
@@ -33,43 +35,95 @@
 					<a href="contact.html" class="menu"><li class="menu">Contact</li></a>
         </ul>
       </nav>
-      <article>
+        <?php include("inc/connexion.inc.php");
+		 if(!isset($_GET['nouvelarticle'])) {		
+		?>
+		<article>
+		<form name="formulaire" action="message2.php" method="GET">
+          <p>*Article à modifier ou supprimer:</p>				
+          <?php 
+		    $requete = 'select titre, categoriearticle, datemodificationarticle, contenuarticle from content where idarticle ="'.$_GET ['idarticle'].'"';		                
+				//Exécution d'une requete SQL avec PDO
+                      $resultat = $con->query($requete);		
+	                  while ($nbutilisateurs = $resultat->fetch()) {
 
-        <form name="formulaire" action="message2.php" method="POST">
-          <p>Article</p>
-          <div id="conteneur-bouton">
-		      <div id="nom">
-            <label for="nom">*Article à modifier:</label>
-            <?php include("inc/connexion.inc.php");	
-				      $requete = 'select titre, categoriearticle, datemodificationarticle from content where idarticle ="'.$_GET ['idarticle'].'"';		
-              //Exécution d'une requete SQL avec PDO
-              $resultat = $con->query($requete);		
-	            while ($nbutilisateurs = $resultat->fetch()) {
                 // on affiche le résultat pour le visiteur		
-                echo "<table border='1'>\n";				
-		            echo "<tr>\n";
-		            echo "<td><p>Titre de l'article</p></td>";
-                echo "<td><p>Catégorie de l'article</p></td>";
-		            echo "<td><p>Date de la dernière modification de l'article</p></td>";
-		            echo "<td><p>Login de la personne ayant modifié l'article</p></td>";
-		            echo "</tr>\n";
-                echo "<tr>\n";?>
-                <td><input id="titre" type="text" name="titre" value="<?php echo "".$nbutilisateurs['titre'].""?>"></td>
-                <td><input id="categoriearticle" type="text" name="categoriearticle" value="<?php echo "".$nbutilisateurs['categoriearticle'].""?>"></td>
-                <td><input id="datemodificationarticle" type="text" name="datemodificationarticle" value="<?php echo "".$nbutilisateurs['datemodificationarticle'].""?>"></td>
-                <input type="hidden" name="idarticle" value="<?php echo "".$_GET ['idarticle'].""?>">
-		            <?php                                              }
-		              echo "</table>\n";
-                ?>
-          </div>
-          <input type="submit" value="Modifier" name="Modifier" id="modifier">
-        </form>
-      </article>
-    </div>
+					  echo "<table border='1'>\n";				
+		              echo "<tr>\n";
+		              echo "<td><p>Titre de l'article</p></td>";?>
+					  <td><input id="titre" type="text" name="titre" value="<?php echo "".$nbutilisateurs['titre'].""?>"></td>
+					  <?php echo "</tr>\n";
+					  echo "<tr>\n";
+                      echo "<td><p>Catégorie de l'article</p></td>";?>
+					  <td><input id="categoriearticle" type="text" name="categoriearticle" value="<?php echo "".$nbutilisateurs['categoriearticle'].""?>"></td>		
+                      <?php echo "</tr>\n";
+					  echo "<tr>\n";					  
+					  echo "<td><p>Contenu de l'article</p></td>";?>
+					  <td><input id="contenuarticle" name="contenuarticle" value="<?php echo "".$nbutilisateurs['contenuarticle'].""?>"></td>
+					  <?php echo "</tr>\n";
+					  echo "<tr>\n";
+		              echo "<td><p>Date de la dernière modification de l'article</p></td>";?>
+					  <td><?php echo "".$nbutilisateurs['datemodificationarticle'].""?></td>
+					  <?php echo "</tr>\n";
+					  echo "<tr>\n";
+		              echo "<td><p>Login de la personne connectée</p></td>";?>
+					  <td><?php echo "".$_SESSION['login'].""?></td>
+		              <?php echo "</tr>\n";
+					  echo "<tr>\n";
+					  echo "</table>\n";
+					  ?>					  
+					  					  
+					  <input type="hidden" name="idarticle" value="<?php echo "".$_GET ['idarticle'].""?>">
+					  <p class="bouton">
+					    <input type="submit" value="Modifier" name="modifier" id="modifier">
+						<input type="submit" value="Supprimer" name="supprimer" id="supprimer">		                
+                      </p>	
+                      <input id="retour2" class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">					  
+                      </form>
+                      </article>
+		              <?php
+		                                                            }
+		              }
+	                  ?>						  
+				          <?php				
+				            if(isset($_GET['nouvelarticle'])) {
+				          ?>
+				          <article>					    
+				            <form id="ajoutarticle" name="ajoutarticle" method="GET" action="message2.php">			
+                            <p>Nouvel article</p>	
+				  
+				            <?php
+                            // on affiche le résultat pour le visiteur		
+					          echo "<table border='1'>\n";				
+		                      echo "<tr>\n";
+		                      echo "<td><p>Titre de l'article</p></td>";?>
+							  <td><input id="titre" type="text" name="titre" value=""></td>
+							  <?php echo "</tr>\n";
+							  echo "<tr>\n";
+                              echo "<td><p>Catégorie de l'article</p></td>";?>
+							  <td><input id="categoriearticle" type="text" name="categoriearticle" value=""></td>
+		                      <?php echo "</tr>\n";
+							  echo "<tr>\n";
+							  echo "<td><p>Contenu de l'article</p></td>";?>
+							  <td><textarea id="contenuarticle" name="contenuarticle" value=""></textarea></td>							  							  
+		                      <?php echo "</tr>\n";				  			    										   											   
+		                            echo "</table>\n";
+	                          ?>	
+					          <p class="bouton">
+		                        <input type="submit" value="Ajouter" name="ajouter" id="ajouter">
+						        <input id="retour"class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">
+						      </p>
+						    </form>
+                          </article>
+		                  <?php											   											   
+												   }
+	                      ?>							  						  				            				          
+
 		<footer>
 			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
 		</footer>
-    <script src="js/formulaire.js"></script>
-    <script src="js/fonction.js"></script>
+        <script src="js/formulaire.js"></script>
+        <script src="js/fonction.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy0McvUlCnwFbzzzokeavKbZlN7JDXsFc&callback=initialiseMap"></script>
 	</body>
 </html>
