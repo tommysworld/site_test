@@ -36,13 +36,17 @@
       </nav>
       <article>
 		<?php include("inc/connexion.inc.php");
-          $date = date("Y-m-d");		
+		  setlocale(LC_TIME, 'fr_FR');
+		  date_default_timezone_set('Europe/Paris');
+		  $date = strftime('%Y-%m-%d %H:%M');		
 	      if(isset($_GET["modifier"])){
-		    $requete = 'update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'" where idarticle ="'.$_GET ['idarticle'].'"';
-		    $con->exec($requete);
+		    $requete ='update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'" where idarticle ="'.$_GET ['idarticle'].'"';
+		    $con->prepare($requete);
+			$con->exec($requete);
 		    echo "Les modifications ont bien été prises en compte";};
 	      if(isset($_GET["supprimer"])){
 		    $requete = 'delete from content where idarticle ="'.$_GET ['idarticle'].'"';
+			$con->prepare($requete);
 		    $con->exec($requete);
 		    echo "La suppression a bien été prise en compte";};
 	    ?>
@@ -53,8 +57,9 @@
 			$categoriearticle = $_GET ['categoriearticle'];
 			$contenuarticle = $_GET ['contenuarticle'];
 			$login = $_SESSION ['login'];
-		    $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'")';
-		    $con->exec($requete);
+		    $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle, datemodificationarticle) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'", "'.$date.'")';
+		    $con->prepare($requete);
+			$con->exec($requete);
 		    echo "L'article a bien été ajouté";
 		                           };			
 		?>

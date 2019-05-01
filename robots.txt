@@ -1,0 +1,9 @@
+# fichier pour les robots du site https://tommy-s-world.000webhostapp.com
+User-Agent: * 
+Disallow: /inc/ 
+Disallow: /js/ 
+Disallow: /connexion.php
+Disallow: /message.php 
+Allow: /*.css?*
+
+Sitemap : https://tommy-s-world.000webhostapp.com/sitemap.xml

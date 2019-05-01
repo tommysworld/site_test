@@ -7,13 +7,13 @@
 		<meta charset="UTF-8"/>
 		<title>Tommy's World - Contact</title>
 		<link href="css/style.css" rel ="stylesheet" type="text/css" />
-    <link href="css/placement.css" rel ="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
-    <link href="css/image.css" rel ="stylesheet" type="text/css" />
+        <link href="css/placement.css" rel ="stylesheet" type="text/css" />
+        <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
+        <link href="css/image.css" rel ="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Page de contact avec les liens vers les pages de Tommy ainsi qu'un formulaire de contact pour des messages" />
+        <meta name="description" content="Page de contact avec les liens vers les pages de Tommy ainsi qu'un formulaire de contact pour des messages" />
 	</head>
 	<body>
 		<header>
@@ -30,10 +30,10 @@
       <nav class="menu">
         <ul class="menu">
           <a href="noir-blanc.html" class="menu"><li class="menu">Noir et blanc</li></a>
-					<a href="aquarelle.html" class="menu"><li class="menu">Aquarelle</li></a>
-					<a href="flash.html" class="menu"><li class="menu">Flash</li></a>
-					<a href="croquis.html" class="menu"><li class="menu">Croquis</li></a>
-					<a href="contact.html" class="menu"><li class="menu">Contact</li></a>
+					<a href="aquarelle.php" class="menu"><li class="menu">Aquarelle</li></a>
+					<a href="flash.php" class="menu"><li class="menu">Flash</li></a>
+					<a href="croquis.php" class="menu"><li class="menu">Croquis</li></a>
+					<a href="contact.php" class="menu"><li class="menu">Contact</li></a>
         </ul>
       </nav>
       <form id="listearticle" action="articlemodif.php">
@@ -55,23 +55,24 @@
 		echo "</tr>\n";
 		
         $requete = "select titre, categoriearticle, idarticle, datemodificationarticle, nomusermodificationarticle, contenuarticle from content";			
-        $resultat = $con->query($requete);
+        $resultat = $con->prepare($requete);
+		$resultat = $con->query($requete);
 		
 	    while ($nbutilisateurs = $resultat->fetch()) {
 
-    // on affiche le résultat pour le visiteur			
-	    $test=$nbutilisateurs['idarticle'];
-		$url="articlemodif.php?idarticle=$test";
-		echo "<tr>\n";
-		echo "<td>".$nbutilisateurs['titre']. "</td>\n";
-        echo "<td>".$nbutilisateurs['categoriearticle']. "</td>\n";
-		echo "<td>".$nbutilisateurs['contenuarticle']. "</td>\n";
-		echo "<td>".$nbutilisateurs['datemodificationarticle']. "</td>\n";
-		echo "<td>".$nbutilisateurs['nomusermodificationarticle']. "</td>\n";
-        echo '<td>'.'<a href="'.$url.'">lien pour modifier ou supprimer l article</td>'.'</a>';
-		echo "</tr>\n";
+        // on affiche le résultat pour le visiteur			
+	      $test=$nbutilisateurs['idarticle'];
+		  $url="articlemodif.php?idarticle=$test";
+		  echo "<tr>\n";
+		  echo "<td>".$nbutilisateurs['titre']. "</td>\n";
+          echo "<td>".$nbutilisateurs['categoriearticle']. "</td>\n";
+		  echo "<td>".$nbutilisateurs['contenuarticle']. "</td>\n";
+		  echo "<td>".$nbutilisateurs['datemodificationarticle']. "</td>\n";
+		  echo "<td>".$nbutilisateurs['nomusermodificationarticle']. "</td>\n";
+          echo '<td>'.'<a href="'.$url.'">lien pour modifier ou supprimer l article</td>'.'</a>';
+		  echo "</tr>\n";
 		}
-		echo "</table>\n";			;
+		  echo "</table>\n";			;
 		?>
       </article>
       <p class="bouton">

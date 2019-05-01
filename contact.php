@@ -1,3 +1,8 @@
+<?php 
+  // On ajoute un cookie d'une durée de 6 mois avec le mode httponly d'activé.
+  setcookie('contact', 'contact', time() + 183*24*3600, null, null, false, true); 
+?>
+
 <!DOCTYPE html>
 
 <html lang='fr'>
@@ -20,17 +25,25 @@
 				<h1 class="banniere">Tommy's World, page de contact</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
+				  <p>
+		            <?php 
+                      if (!isset($_COOKIE['contact'])) {
+	                    echo 'Bienvenue';
+                                             }
+                        else {};
+                    ?>
+		          </p>
 				</form>
 			</div>
 		</header>
 		<div class="responsive">
       <nav class="menu">
         <ul class="menu">
-          <a href="noir-blanc.html" class="menu"><li class="menu">Noir et blanc</li></a>
-					<a href="aquarelle.html" class="menu"><li class="menu">Aquarelle</li></a>
-					<a href="flash.html" class="menu"><li class="menu">Flash</li></a>
-					<a href="croquis.html" class="menu"><li class="menu">Croquis</li></a>
-					<a href="contact.html" class="menu"><li class="menu">Contact</li></a>
+          <a href="noir-blanc.php" class="menu"><li class="menu">Noir et blanc</li></a>
+					<a href="aquarelle.php" class="menu"><li class="menu">Aquarelle</li></a>
+					<a href="flash.php" class="menu"><li class="menu">Flash</li></a>
+					<a href="croquis.php" class="menu"><li class="menu">Croquis</li></a>
+					<a href="contact.php" class="menu"><li class="menu">Contact</li></a>
         </ul>
       </nav>
       <main>
@@ -39,12 +52,12 @@
           <form action="message.php" id="contactForm" name="formulaire" onsubmit="return controlform();" method="GET">
             <p>
               <label for="nomPrenom">Nom et prénom * : </label>
-              <input type="text" id="nomPrenom" name="nomPrenom" onblur="majuscule(this); changeBord(this);" onblur="majuscule(this); changeBord(this);" required>
+              <input type="text" id="nomPrenom" name="nomPrenom" onblur="majuscule(this); changeBord(this); majuscule(this); testNomPrenom(this);" required>
             </p>
             <p id="error-nom-prenom" class="error"></p>
             <p>
               <label for="numPortable">Numéro de telephone : </label>
-              <input type="text" id="numPortable" name="numPortable" onblur="espaceSupp(this); changeBord(this);" onkeypress="espaceSupp(this); changeBord(this);" placeholder="0601020304">
+              <input type="text" id="numPortable" name="numPortable" onblur="espaceSupp(this); changeBord(this); testNumPortable(this);" onkeypress="espaceSupp(this); changeBord(this);" placeholder="0601020304">
             </p>
             <p id="error-num-portable" class="error"></p>
             <div class="liste">
@@ -60,7 +73,7 @@
             </div>
             <p class="textarea">
               <label for="message">Message * : </label>
-              <textarea id="message" name="message" rows=5 onblur="changeBord(this);" onkeypress="changeBord(this);" placeholder="Message à saisir" required></textarea>
+              <textarea id="message" name="message" rows=5 onblur="changeBord(this); testMessage(this);" onkeypress="changeBord(this);" placeholder="Message à saisir" required></textarea>
             </p>
             <p id="error-message" class="error"></p>
             <p>
@@ -83,7 +96,7 @@
             </div>
             <p class="bouton">
               <input id="reset" type="reset" value="Effacer" onclick="return resetForm();">
-              <input id="submit" name="submit" type="submit" value="Envoyer">
+              <input id="submit" type="submit" name="submit" value="Envoyer">
             </p>
           </form>
           <h2>Informations utiles</h2>

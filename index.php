@@ -1,26 +1,47 @@
+<?php 
+  // On ajoute un cookie d'une durée de 6 mois avec le mode httponly d'activé.
+  setcookie('accueil', 'accueil', time() + 183*24*3600, null, null, false, true); 
+?>
+
 <!DOCTYPE html>
 
 <html lang='fr'>
 	<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139416015-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-139416015-1');
+    </script>
 		<meta charset="UTF-8"/>
 		<title>Tommy's World - des tatouages sur Orléans</title>
 		<link href="css/style.css" rel ="stylesheet" type="text/css" />
-    <link href="css/placement.css" rel ="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
-    <link href="css/image.css" rel ="stylesheet" type="text/css" />
+        <link href="css/placement.css" rel ="stylesheet" type="text/css" />
+        <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
+        <link href="css/image.css" rel ="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css' />
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Page d'accueil présentant les tatouages, tatoos de l'artiste 
-      tatoueurs Tommy ainsi que son univers sur Orléans et ses environs" />
+        <meta name="description" content="Page d'accueil présentant les tatouages, tatoos de l'artiste tatoueur Tommy ainsi que son univers sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
 			<div class="banniere">
-				<a href="index.html" class="logo"><img class="logo" src="img/logo-artiste.png" title="Logo de l'artiste" alt="Logo de l'artiste"/></a>
+				<a href="index.php" class="logo"><img class="logo" src="img/logo-artiste.png" title="Logo de l'artiste" alt="Logo de l'artiste"/></a>
 				<div class="img-banniere"></div>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
+				  <p>
+		            <?php 
+                      if (!isset($_COOKIE['accueil'])) {
+	                    echo 'Bienvenue';
+                                             }
+                        else {};
+                    ?>
+		          </p>
 				</form>
 			</div>
 		</header>
