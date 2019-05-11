@@ -20,92 +20,86 @@
 	<body>
 		<header>
 			<div class="banniere">
-				<a href="index.php" class="logo"><img class="logo" src="img/logo-artiste.png" title="Retour à la page d'accueil" alt="Logo de l'artiste"/></a>
+				<?php include "inc/logo.inc.php" ?>
 				<h1 class="banniere">Tommy's World, les tatouages aquarelles</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
-	                <?php 
-                      if (!isset($_COOKIE['aquarelle'])) {
-	                   echo 'Bienvenue';
-                                          }
-                       else {};
-                    ?>
-                  </p>
+            <?php 
+              if (!isset($_COOKIE['aquarelle'])) {
+                echo 'Bienvenue';
+              }
+              else {};
+            ?>
+          </p>
 				</form>
 			</div>
 		</header>
     <div class="responsive">
-      <nav class="menu">
-        <ul class="menu">
-          <a href="noir-blanc.html" class="menu"><li class="menu">Noir et blanc</li></a>
-					<a href="aquarelle.php" class="menu"><li class="menu">Aquarelle</li></a>
-					<a href="flash.php" class="menu"><li class="menu">Flash</li></a>
-					<a href="croquis.php" class="menu"><li class="menu">Croquis</li></a>
-					<a href="contact.php" class="menu"><li class="menu">Contact</li></a>
-        </ul>
-      </nav>
+      <?php
+        include "inc/menu.inc.php"
+      ?>
       <main>
-      <article>
-        <h2>Réalisations aquarelles</h2>
-        <div class="ligne">
-          <div class="article">
-            <a href="aquarelle-tatouage-1.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
-            <p class="article">
-			  <?php include("inc/connexion.inc.php");	
-		        $requete = 'select titre from content where idarticle="1"';		
-                $resultat = $con->query($requete);
-			    while ($nbutilisateurs = $resultat->fetch()) {
-				  echo $nbutilisateurs['titre'];
-			  }	  
-		     ?>			
-			</p>
+        <article>
+          <h2>Réalisations aquarelles</h2>
+          <div class="ligne">
+            <div class="article">
+              <a href="aquarelle-tatouage-1.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
+              <p class="article">
+                <?php include("inc/connexion.inc.php");	
+                  $requete = 'select titre from content where idarticle="1"';		
+                  $resultat = $con->query($requete);
+                  while ($nbutilisateurs = $resultat->fetch()) {
+                    echo $nbutilisateurs['titre'];
+                  }	  
+                ?>			
+              </p>
+            </div>
+            <div class="article">
+              <a href="aquarelle-tatouage-2.php" class="article"><img class="article" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
+              <p class="article">
+                <?php include("inc/connexion.inc.php");	
+                  $requete = 'select titre from content where idarticle="2"';		
+                  $resultat = $con->query($requete);
+                  while ($nbutilisateurs = $resultat->fetch()) {
+                    echo $nbutilisateurs['titre'];
+                  }	  
+                ?>						
+              </p>
+            </div>
           </div>
-          <div class="article">
-            <a href="aquarelle-tatouage-2.php" class="article"><img class="article" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
-            <p class="article">
-			  <?php include("inc/connexion.inc.php");	
-		        $requete = 'select titre from content where idarticle="2"';		
+          <div class="ligne">
+            <div class="article">
+              <a href="aquarelle-tatouage-2.php" class="article"><img class="article" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
+              <p class="article">
+                <?php include("inc/connexion.inc.php");	
+                  $requete = 'select titre from content where idarticle="1"';		
+                  $resultat = $con->query($requete);
+                  while ($nbutilisateurs = $resultat->fetch()) {
+                    echo $nbutilisateurs['titre'];
+                  }	  
+                ?>				
+              </p>
+            </div>
+            <div class="article">
+              <a href="aquarelle-tatouage-1.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
+              <p class="article">
+              <?php include("inc/connexion.inc.php");	
+                $requete = 'select titre from content where idarticle="2"';		
                 $resultat = $con->query($requete);
-			    while ($nbutilisateurs = $resultat->fetch()) {
-				  echo $nbutilisateurs['titre'];
-			  }	  
-		      ?>						
-			</p>
+                while ($nbutilisateurs = $resultat->fetch()) {
+                  echo $nbutilisateurs['titre'];
+                }	  
+              ?>			
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="ligne">
-          <div class="article">
-            <a href="aquarelle-tatouage-2.php" class="article"><img class="article" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
-            <p class="article">
-			 <?php include("inc/connexion.inc.php");	
-		        $requete = 'select titre from content where idarticle="1"';		
-                $resultat = $con->query($requete);
-			    while ($nbutilisateurs = $resultat->fetch()) {
-				  echo $nbutilisateurs['titre'];
-			  }	  
-		     ?>				
-			</p>
-          </div>
-          <div class="article">
-            <a href="aquarelle-tatouage-1.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
-            <p class="article">
-			  <?php include("inc/connexion.inc.php");	
-		        $requete = 'select titre from content where idarticle="2"';		
-                $resultat = $con->query($requete);
-			    while ($nbutilisateurs = $resultat->fetch()) {
-				  echo $nbutilisateurs['titre'];
-			  }	  
-		      ?>			
-			</p>
-          </div>
-        </div>
-      </article>
-    </main>
-  </div>
-  <footer>
-    <p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
-  </footer>
-  <script src="js/fonction.js"></script>
-    </body>
+        </article>
+      </main>
+    </div>
+    <?php
+      include "inc/footer.inc.php"
+    ?>
+    <script src="js/fonction.js"></script>
+  </body>
 </html>
