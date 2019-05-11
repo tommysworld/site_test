@@ -18,74 +18,66 @@
 	<body>
 		<header>
 			<div class="banniere">
-				<a href="index.html" class="logo"><img class="logo" src="img/logo-artiste.png" title="Retour à la page d'accueil" alt="Logo de l'artiste"/></a>
+				<?php include "inc/logo.inc.php" ?>
 				<h1 class="banniere">Tommy's World, liste des articles</h1>
 				<form action="connexion.php">
-				  <input type="submit" value="Deconnexion" id="deconnexion">
+				  <input type="submit" value="Deconnexion" id="deconnexion"/>
 				  <?php echo $_SESSION['login']; ?>
 				</form>
 			</div>
 		</header>
 		<div class="responsive">
-      <nav class="menu">
-        <ul class="menu">
-          <a href="noir-blanc.html" class="menu"><li class="menu">Noir et blanc</li></a>
-					<a href="aquarelle.php" class="menu"><li class="menu">Aquarelle</li></a>
-					<a href="flash.php" class="menu"><li class="menu">Flash</li></a>
-					<a href="croquis.php" class="menu"><li class="menu">Croquis</li></a>
-					<a href="contact.php" class="menu"><li class="menu">Contact</li></a>
-        </ul>
-      </nav>
+      <?php
+        include "inc/menu.inc.php"
+      ?>
       <form id="listearticle" action="articlemodif.php">
       <article>
-
         <?php include("inc/connexion.inc.php");
         echo "<p>Liste des articles </p>";
 		
-		//nb de lignes contenu dans résultat
+        //nb de lignes contenu dans résultat
 
         echo "<table border='1'>\n";
-		echo "<tr>\n";
-		echo "<td><p>Titre de l'article</p></td>";
+        echo "<tr>\n";
+        echo "<td><p>Titre de l'article</p></td>";
         echo "<td><p>Catégorie de l'article</p></td>";
-		echo "<td><p>Date de la dernière modification de l'article</p></td>";
-		echo "<td><p>Contenu de l'article</p></td>";
-		echo "<td><p>Login de la personne ayant modifié l'article</p></td>";
-		echo "<td><p>Lien pour modifier ou supprimer l'article</p></td>";
-		echo "</tr>\n";
+        echo "<td><p>Date de la dernière modification de l'article</p></td>";
+        echo "<td><p>Contenu de l'article</p></td>";
+        echo "<td><p>Login de la personne ayant modifié l'article</p></td>";
+        echo "<td><p>Lien pour modifier ou supprimer l'article</p></td>";
+        echo "</tr>\n";
 		
         $requete = "select titre, categoriearticle, idarticle, datemodificationarticle, nomusermodificationarticle, contenuarticle from content";			
         $resultat = $con->prepare($requete);
-		$resultat = $con->query($requete);
+        $resultat = $con->query($requete);
 		
-	    while ($nbutilisateurs = $resultat->fetch()) {
+        while ($nbutilisateurs = $resultat->fetch()) {
 
-        // on affiche le résultat pour le visiteur			
-	      $test=$nbutilisateurs['idarticle'];
-		  $url="articlemodif.php?idarticle=$test";
-		  echo "<tr>\n";
-		  echo "<td>".$nbutilisateurs['titre']. "</td>\n";
+          // on affiche le résultat pour le visiteur			
+          $test=$nbutilisateurs['idarticle'];
+          $url="articlemodif.php?idarticle=$test";
+          echo "<tr>\n";
+          echo "<td>".$nbutilisateurs['titre']. "</td>\n";
           echo "<td>".$nbutilisateurs['categoriearticle']. "</td>\n";
-		  echo "<td>".$nbutilisateurs['contenuarticle']. "</td>\n";
-		  echo "<td>".$nbutilisateurs['datemodificationarticle']. "</td>\n";
-		  echo "<td>".$nbutilisateurs['nomusermodificationarticle']. "</td>\n";
+          echo "<td>".$nbutilisateurs['contenuarticle']. "</td>\n";
+          echo "<td>".$nbutilisateurs['datemodificationarticle']. "</td>\n";
+          echo "<td>".$nbutilisateurs['nomusermodificationarticle']. "</td>\n";
           echo '<td>'.'<a href="'.$url.'">lien pour modifier ou supprimer l article</td>'.'</a>';
-		  echo "</tr>\n";
-		}
-		  echo "</table>\n";			;
-		?>
+          echo "</tr>\n";
+        }
+        echo "</table>\n";
+        ?>
       </article>
       <p class="bouton">
-	        <input id="nouvelarticle" type="submit" name="nouvelarticle" value="Créer un article">
-			<input id="lienpagemessage" class="retour" type="button" value="Lien vers la page message" onclick="self.location.href='message.php'">
-	  </p>
+	      <input id="nouvelarticle" type="submit" name="nouvelarticle" value="Créer un article"/>
+        <input id="lienpagemessage" class="retour" type="button" value="Lien vers la page message" onclick="self.location.href='message.php'"/>
+      </p>
 	  </form>
     </div>
-		<footer>
-			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
-		</footer>
+    <?php
+      include "inc/footer.inc.php"
+    ?>
     <script src="js/formulaire.js"></script>
     <script src="js/fonction.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy0McvUlCnwFbzzzokeavKbZlN7JDXsFc&callback=initialiseMap"></script>
 	</body>
 </html>

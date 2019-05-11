@@ -25,37 +25,31 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css' />
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-        <meta name="description" content="Page d'accueil présentant les tatouages, tatoos de l'artiste tatoueur Tommy ainsi que son univers sur Orléans et ses environs" />
+    <meta name="description" content="Page d'accueil présentant les tatouages, tatoos de l'artiste tatoueur Tommy ainsi que son univers sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
 			<div class="banniere">
-				<a href="index.php" class="logo"><img class="logo" src="img/logo-artiste.png" title="Logo de l'artiste" alt="Logo de l'artiste"/></a>
+				<?php include "inc/logo.inc.php" ?>
 				<div class="img-banniere"></div>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
-		            <?php 
-                      if (!isset($_COOKIE['accueil'])) {
-	                    echo 'Bienvenue';
-                                             }
-                        else {};
-                    ?>
-		          </p>
+            <?php 
+              if (!isset($_COOKIE['accueil'])) {
+                echo 'Bienvenue';
+              }
+              else {};
+            ?>
+          </p>
 				</form>
 			</div>
 		</header>
 		<h1>Tommy's World, un nouveau monde de tatouages à Orléans</h1>
     <div class="responsive">
-      <nav class="menu">
-        <ul class="menu">
-          <a href="noir-blanc.html" class="menu"><li class="menu">Noir et blanc</li></a>
-          <a href="aquarelle.html" class="menu"><li class="menu">Aquarelle</li></a>
-          <a href="flash.html" class="menu"><li class="menu">Flash</li></a>
-          <a href="croquis.html" class="menu"><li class="menu">Croquis</li></a>
-          <a href="contact.html" class="menu"><li class="menu">Contact</li></a>
-        </ul>
-      </nav>
+      <?php
+        include "inc/menu.inc.php"
+      ?>
       <main>
         <div class="articles">
           <input type="button" class="afficher" id="boutonAffiche" value="Afficher plan du site" onclick="displayResume()"/>
@@ -96,9 +90,9 @@
         </div>
       </main>
     </div>
-		<footer>
-			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
-		</footer>
+    <?php
+      include "inc/footer.inc.php"
+    ?>
     <script src="js/fonction.js"></script>
 	</body>
 </html>

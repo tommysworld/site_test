@@ -1,8 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset 
-  xlmns="https://www.sitemaps.org/schemas/sitemap/0.9"
-  xlmns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  xlmns="https://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://tommy-s-world.000webhostapp.com/index.php</loc>
   <priority>1.0</priority>

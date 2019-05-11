@@ -17,7 +17,7 @@
 	<body>
 		<header>
 			<div class="banniere">
-				<a href="index.html" class="logo"><img class="logo" src="img/logo-artiste.png" title="Retour à la page d'accueil" alt="Logo de l'artiste"/></a>
+				<?php include "inc/logo.inc.php" ?>
 				<h1 class="banniere">Tommy's World, résultat du formulaire</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
@@ -25,49 +25,45 @@
 			</div>
 		</header>
     <div class="responsive">
-      <nav class="menu">
-        <ul class="menu">
-          <li class="menu"><a href="noir-blanc.html" class="menu">Noir et blanc</a></li>
-          <li class="menu"><a href="aquarelle.html" class="menu">Aquarelle</a></li>
-          <li class="menu"><a href="flash.html" class="menu">Flash</a></li>
-          <li class="menu"><a href="croquis.html" class="menu">Croquis</a></li>
-          <li class="menu"><a href="contact.html" class="menu">Contact</a></li>
-        </ul>
-      </nav>
+      <?php
+        include "inc/menu.inc.php"
+      ?>
       <article>
-		<?php include("inc/connexion.inc.php");
-		  setlocale(LC_TIME, 'fr_FR');
-		  date_default_timezone_set('Europe/Paris');
-		  $date = strftime('%Y-%m-%d %H:%M');		
-	      if(isset($_GET["modifier"])){
-		    $requete ='update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'" where idarticle ="'.$_GET ['idarticle'].'"';
-		    $con->prepare($requete);
-			$con->exec($requete);
-		    echo "Les modifications ont bien été prises en compte";};
-	      if(isset($_GET["supprimer"])){
-		    $requete = 'delete from content where idarticle ="'.$_GET ['idarticle'].'"';
-			$con->prepare($requete);
-		    $con->exec($requete);
-		    echo "La suppression a bien été prise en compte";};
+      <?php include("inc/connexion.inc.php");
+        setlocale(LC_TIME, 'fr_FR');
+        date_default_timezone_set('Europe/Paris');
+        $date = strftime('%Y-%m-%d %H:%M');		
+        if(isset($_GET["modifier"])){
+          $requete ='update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'" where idarticle ="'.$_GET ['idarticle'].'"';
+          $con->prepare($requete);
+          $con->exec($requete);
+          echo "Les modifications ont bien été prises en compte";
+        };
+        if(isset($_GET["supprimer"])){
+          $requete = 'delete from content where idarticle ="'.$_GET ['idarticle'].'"';
+          $con->prepare($requete);
+          $con->exec($requete);
+          echo "La suppression a bien été prise en compte";
+        };
 	    ?>
 			
-		<?php
-		if(isset($_GET["ajouter"])){
-			$titre = $_GET ['titre'];
-			$categoriearticle = $_GET ['categoriearticle'];
-			$contenuarticle = $_GET ['contenuarticle'];
-			$login = $_SESSION ['login'];
-		    $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle, datemodificationarticle) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'", "'.$date.'")';
-		    $con->prepare($requete);
-			$con->exec($requete);
-		    echo "L'article a bien été ajouté";
-		                           };			
-		?>
+      <?php
+        if(isset($_GET["ajouter"])){
+          $titre = $_GET ['titre'];
+          $categoriearticle = $_GET ['categoriearticle'];
+          $contenuarticle = $_GET ['contenuarticle'];
+          $login = $_SESSION ['login'];
+          $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle, datemodificationarticle) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'", "'.$date.'")';
+          $con->prepare($requete);
+          $con->exec($requete);
+          echo "L'article a bien été ajouté";
+        };			
+      ?>
       </article>
       <input class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">
     </div>
-		<footer>
-			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
-		</footer>
+    <?php
+      include "inc/footer.inc.php"
+    ?>
 	</body>
 </html>

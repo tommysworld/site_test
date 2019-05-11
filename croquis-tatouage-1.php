@@ -20,32 +20,24 @@
 	<body>
 		<header>
 			<div class="banniere">
-				<a href="index.php" class="logo"><img class="logo" src="img/logo-artiste.png" title="Retour à la page d'accueil" alt="Logo de l'artiste"/></a>
+				<?php include "inc/logo.inc.php" ?>
 				<h1 class="banniere">Tommy's World, les croquis de Tommy</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
-		            <?php 
-                      if (!isset($_COOKIE['croquis1'])) {
-	                    echo 'Bienvenue';
-                                             }
-                        else {};
-                    ?>
-		          </p>
+            <?php 
+              if (!isset($_COOKIE['croquis1'])) {
+                echo 'Bienvenue';
+              } else {};
+            ?>
+          </p>
 				</form>
-
 			</div>
 		</header>
 		<div class="responsive">
-			<nav class="menu">
-				<ul class="menu">
-					<a href="noir-blanc.php" class="menu"><li class="menu">Noir et blanc</li></a>
-					<a href="aquarelle.php" class="menu"><li class="menu">Aquarelle</li></a>
-					<a href="flash.php" class="menu"><li class="menu">Flash</li></a>
-					<a href="croquis.php" class="menu"><li class="menu">Croquis</li></a>
-					<a href="contact.php" class="menu"><li class="menu">Contact</li></a>
-				</ul>
-			</nav>
+      <?php
+        include "inc/menu.inc.php"
+      ?>
       <main>
         <article>
           <h2>
@@ -88,9 +80,9 @@
         </article>
       </main>
 		</div>
-		<footer>
-			<p>Copyright Bourdain Loïc et Tommy - <a href="mention-legale.html">Mentions légales</a></p>
-		</footer>
+    <?php
+      include "inc/footer.inc.php"
+    ?>
     <script src="js/fonction.js"></script>
 	</body>
 </html>
