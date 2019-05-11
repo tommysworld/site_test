@@ -71,6 +71,8 @@
   }
   
 	img.profil{
+    width: 30%;
+    height: 30%;
 		margin: auto 1%;
 	}
 	
@@ -192,7 +194,9 @@
 	}
 	
 	img.profil{
-		margin: auto;
+    width: 300px;
+    height: 300px;
+		margin: 1% auto;
 	}
 	
 	div.produit{
