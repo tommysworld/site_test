@@ -67,7 +67,9 @@
 	}
   
   img.produit{
-    margin: auto 1%;
+    width:30%;
+    height: 30%;
+    margin: 1% auto;
   }
   
 	img.profil{
@@ -81,8 +83,9 @@
 	}
 	
 	div.description{
-		width: 100%;		
-	}
+    height: auto;
+    margin : auto 1%;
+  }
   
   div.liste{
     flex-direction: row;
@@ -194,9 +197,9 @@
 	}
 	
 	img.profil{
-    width: 300px;
-    height: 300px;
-		margin: 1% auto;
+    width: 70%;
+    height: auto;
+		margin: auto;
 	}
 	
 	div.produit{
@@ -204,6 +207,8 @@
 	}
 	
 	img.produit{
+    width: 70%;
+    height: auto;
 		margin: auto;
 	}
   
