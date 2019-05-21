@@ -25,7 +25,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css' />
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Page d'accueil présentant les tatouages, tatoos de l'artiste tatoueur Tommy ainsi que son univers sur Orléans et ses environs" />
+    <meta name="description" content="Page d'accueil présentant les tatouages, tatoos, flash, croquis; en couleur ou en noir et blanc; de l'artiste tatoueur Tommy ainsi que son univers, de son world, sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
@@ -80,10 +80,10 @@
               <div class="paragraphe">
                 <p>Hello</p>
                 <p>
-                  Ce site a pour vocation de partager mes idées, croquis, projets et tatouages avec toi. 
+                  Ce site a pour vocation de partager mes idées, croquis, projets et tatouages avec toi.   
                   Il te permet aussi de prendre contact avec moi si tu veux des informations ou même aller au bout des choses et prendre rendez-vous.
                 </p>
-                <p class="outro">Tu peux m'appeller Tommy et bienvenue dans mon monde.</p>
+                <p class="outro">Tu peux m'appeller Tommy et bienvenue dans mon monde d'art et surtout de tatouages.</p>
               </div>
             </div>
           </article>

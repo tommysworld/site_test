@@ -34,17 +34,6 @@ img.article{
 	margin: auto;
 }
 
-img.produit{
-	width: 30%;
-	height: 30%;
-}
-
-img.profil{
-	width: 30%;
-	height: 30%;
-	margin: auto;
-}
-
 /*Format animation*/
 a.menu li{
 	transition-property: background-image, color;
