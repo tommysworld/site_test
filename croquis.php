@@ -60,7 +60,7 @@
               <a href="croquis-tatouage-2.php" class="article"><img class="article" src="img/tatouage-croquis-2.jpg" title="Plus d'informations en cliquant" alt="Croquis de multiple flashs"/></a>
               <p class="article">
 		        <?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="3"';		
+		          $requete = 'select titre from content where idarticle="4"';		
                   $resultat = $con->query($requete);
 			      while ($nbutilisateurs = $resultat->fetch()) {
 		            echo $nbutilisateurs['titre'];
@@ -74,7 +74,7 @@
               <a href="croquis-tatouage-2.php" class="article"><img class="article" src="img/tatouage-croquis-2.jpg" title="Plus d'informations en cliquant" alt="Croquis de multiple flashs"/></a>
               <p class="article">
 			  	<?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="3"';		
+		          $requete = 'select titre from content where idarticle="4"';		
                   $resultat = $con->query($requete);
 			      while ($nbutilisateurs = $resultat->fetch()) {
 				    echo $nbutilisateurs['titre'];

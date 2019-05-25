@@ -53,7 +53,7 @@
 					<div class="description">
 						<p>
 					      <?php 	
-		                    $requete = 'select contenuarticle from content where idarticle="3"';		
+		                    $requete = 'select contenuarticle from content where idarticle="7"';		
                             $resultat = $con->query($requete);
 			                while ($nbutilisateurs = $resultat->fetch()) {
 				              echo $nbutilisateurs['contenuarticle'];

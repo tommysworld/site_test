@@ -74,7 +74,7 @@
               <a href="flash-tatouage-2.php"><img class="article" src="img/tatouage-flash-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un flash harry potter"/></a>
               <p class="article">
 			  	<?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="5"';		
+		          $requete = 'select titre from content where idarticle="6"';		
                   $resultat = $con->query($requete);
 			      while ($nbutilisateurs = $resultat->fetch()) {
 		          echo $nbutilisateurs['titre'];
@@ -87,7 +87,7 @@
               <a href="flash-tatouage-1.php"><img class="article" src="img/tatouage-flash-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur"/></a>
               <p class="article">
 			  	<?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="6"';		
+		          $requete = 'select titre from content where idarticle="5"';		
                   $resultat = $con->query($requete);
 			      while ($nbutilisateurs = $resultat->fetch()) {
 				    echo $nbutilisateurs['titre'];

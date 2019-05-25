@@ -42,7 +42,7 @@
         <article>
           <h2>
 		    <?php include("inc/connexion.inc.php");	
-		      $requete = 'select titre from content where idarticle="3"';		
+		      $requete = 'select titre from content where idarticle="4"';		
               $resultat = $con->query($requete);
 			  while ($nbutilisateurs = $resultat->fetch()) {
 		        echo $nbutilisateurs['titre'];
@@ -54,7 +54,7 @@
             <div class="description">
               <p>
 				<?php include("inc/connexion.inc.php");	
-		          $requete = 'select contenuarticle from content where idarticle="3"';		
+		          $requete = 'select contenuarticle from content where idarticle="4"';		
                   $resultat = $con->query($requete);
 			      while ($nbutilisateurs = $resultat->fetch()) {
 				    echo $nbutilisateurs['contenuarticle'];
