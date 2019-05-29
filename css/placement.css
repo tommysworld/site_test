@@ -55,6 +55,12 @@ div.acceuil{
 	display: flex;
 }
 
+div.nouveauxarticles{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
 div.produit{
 	display: flex;
 }

@@ -34,6 +34,12 @@ img.article{
 	margin: auto;
 }
 
+img.nouveauxarticles{
+	width: 10%;
+	height: 10%;
+	margin: center;
+}
+
 /*Format animation*/
 a.menu li{
 	transition-property: background-image, color;
