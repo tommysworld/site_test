@@ -93,6 +93,12 @@
               ?>			
               </p>
             </div>
+		    <div class="article">
+              <a href="aquarelle-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
+              <p class="article">
+                Nouveaux articles aquarelles			
+			  </p>
+            </div>
           </div>
         </article>
       </main>

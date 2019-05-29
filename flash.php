@@ -95,6 +95,12 @@
 		        ?>			  
 			  </p>
             </div>
+		    <div class="article">
+              <a href="flash-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-flash-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un flash harry potter"/></a>
+              <p class="article">
+                Nouveaux articles flash		  
+			  </p>
+            </div>
           </div>
         </article>
       </main>

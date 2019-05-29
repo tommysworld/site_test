@@ -39,7 +39,7 @@
         <p>*Article à modifier ou supprimer:</p>				
         <?php 
           $idarticle = htmlentities($_GET['idarticle']);
-          $requete = $con->prepare ('select titre, categoriearticle, datemodificationarticle, contenuarticle from content where idarticle =:idarticle');	
+          $requete = $con->prepare ('select content.titre, content.categoriearticle, content.datemodificationarticle, content.contenuarticle, user.iduser from content inner join user on content.user_article = user.iduser where idarticle =:idarticle');	
           $requete->bindValue(':idarticle', $idarticle, PDO::PARAM_STR);	
           $requete->execute();			
           while ($nbutilisateurs = $requete->fetch()) {
@@ -100,11 +100,14 @@
             echo "<tr>\n";
             echo "<td><p>Titre de l'article</p></td>";?>
             <td><input id="titre" type="text" name="titre" value=""></td>
-          <?php 
-            echo "</tr>\n";
-            echo "<tr>\n";
-            echo "<td><p>Catégorie de l'article</p></td>";?>
-            <td><input id="categoriearticle" type="text" name="categoriearticle" value=""></td>
+            <td>
+			  <SELECT id="categoriearticle" name="categoriearticle" size="1">
+                <OPTION>noir et blanc
+                <OPTION>flash
+                <OPTION>croquis
+                <OPTION>aquarelle
+              </SELECT>
+			</td>
           <?php 
             echo "</tr>\n";
             echo "<tr>\n";

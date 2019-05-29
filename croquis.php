@@ -2,7 +2,6 @@
   // On ajoute un cookie d'une durée de 6 mois avec le mode httponly d'activé.
   setcookie('croquis', 'croquis', time() + 183*24*3600, null, null, false, true); 
 ?>
-
 <!DOCTYPE html>
 
 <html lang='fr'>
@@ -92,6 +91,12 @@
 		            echo $nbutilisateurs['titre'];
 			                                                   }	  
 		        ?>	
+			  </p>
+            </div>
+			<div class="article">
+              <a href="croquis-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-croquis-1.jpg" title="Plus d'informations en cliquant" alt="Croquis d'un flash avec femme et oiseau"/></a>
+              <p class="article">
+                Nouveaux articles croquis		  
 			  </p>
             </div>
           </div>

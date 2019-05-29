@@ -30,35 +30,42 @@
       ?>
       <article>
       <?php include("inc/connexion.inc.php");
-        setlocale(LC_TIME, 'fr_FR');
-        date_default_timezone_set('Europe/Paris');
-        $date = strftime('%Y-%m-%d %H:%M');		
-        if(isset($_GET["modifier"])){
-          $requete ='update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'" where idarticle ="'.$_GET ['idarticle'].'"';
-          $con->prepare($requete);
-          $con->exec($requete);
-          echo "Les modifications ont bien été prises en compte";
-        };
-        if(isset($_GET["supprimer"])){
-          $requete = 'delete from content where idarticle ="'.$_GET ['idarticle'].'"';
-          $con->prepare($requete);
-          $con->exec($requete);
-          echo "La suppression a bien été prise en compte";
-        };
-	    ?>
+		  setlocale(LC_TIME, 'fr_FR');
+		  date_default_timezone_set('Europe/Paris');
+		  $date = strftime('%Y-%m-%d %H:%M');		
+	      if(isset($_GET["modifier"])){
+			$requete1 = "SELECT iduser FROM user WHERE login = '".$_SESSION['login']."' AND password = '".$_SESSION['password']."'";	
+            $resultat =	$con->prepare($requete1);		
+            $resultat = $con->query($requete1);		
+              if($iduser = $resultat->fetch()) {
+		        $requete ='update content set titre ="'.$_GET ['titre'].'", categoriearticle ="'.$_GET ['categoriearticle'].'", contenuarticle ="'.$_GET ['contenuarticle'].'", datemodificationarticle="'.$date.'", nomusermodificationarticle="'.$_SESSION['login'].'", user_article="'.$iduser['iduser'].'" where idarticle ="'.$_GET ['idarticle'].'"';
+		        $con->prepare($requete);
+			    $con->exec($requete);
+		        echo "Les modifications ont bien été prises en compte";};
+	          if(isset($_GET["supprimer"])){
+		        $requete = 'delete from content where idarticle ="'.$_GET ['idarticle'].'"';
+			    $con->prepare($requete);
+		        $con->exec($requete);
+		        echo "La suppression a bien été prise en compte";
+		  }};
+	  ?>
 			
       <?php
-        if(isset($_GET["ajouter"])){
+		if(isset($_GET["ajouter"])){
+	      $requete1 = "SELECT iduser FROM user WHERE login = '".$_SESSION['login']."' AND password = '".$_SESSION['password']."'";	
+          $resultat =	$con->prepare($requete1);		
+          $resultat = $con->query($requete1);		
           $titre = $_GET ['titre'];
-          $categoriearticle = $_GET ['categoriearticle'];
-          $contenuarticle = $_GET ['contenuarticle'];
-          $login = $_SESSION ['login'];
-          $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle, datemodificationarticle) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'", "'.$date.'")';
-          $con->prepare($requete);
-          $con->exec($requete);
-          echo "L'article a bien été ajouté";
-        };			
-      ?>
+	      $categoriearticle = $_GET ['categoriearticle'];
+	      $contenuarticle = $_GET ['contenuarticle'];
+		  $login = $_SESSION ['login'];
+		  if($iduser = $resultat->fetch()) {
+		    $requete = 'insert into content (titre, categoriearticle, contenuarticle, nomusermodificationarticle, datemodificationarticle, user_article) values ("'.$titre.'", "'.$categoriearticle.'", "'.$contenuarticle.'", "'.$login.'", "'.$date.'", "'.$iduser['iduser'].'")';
+		    $con->prepare($requete);
+			$con->exec($requete);
+		    echo "L'article a bien été ajouté";
+		  }};			
+		?>
       </article>
       <input class="retour" type="button" value="&larr; Retour à la page de modification des articles" onclick="self.location.href='backoffice.php'">
     </div>
