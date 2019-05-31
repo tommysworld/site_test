@@ -25,7 +25,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css' />
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Page d'accueil présentant les tatouages, tatoos, flash, croquis; en couleur ou en noir et blanc; de l'artiste tatoueur Tommy ainsi que son univers, de son world, sur Orléans et ses environs" />
+        <meta name="description" content="Page d'accueil présentant les tatouages, tatoos, flash, croquis; en couleur ou en noir et blanc; de l'artiste tatoueur Tommy ainsi que son univers, de son world, sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
@@ -35,13 +35,14 @@
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
-            <?php 
-              if (!isset($_COOKIE['accueil'])) {
-                echo 'Bienvenue';
-              }
-              else {};
-            ?>
-          </p>
+                    <?php 
+                      if (!isset($_COOKIE['accueil'])) {
+                        echo 'Bienvenue';
+                                                     }
+                      else {				                  
+			                                           };			 
+                    ?>
+                  </p>
 				</form>
 			</div>
 		</header>
@@ -57,19 +58,19 @@
             <h2>Plan du site</h2>
             <ul>
               <li>
-                Page <a href="noir-blanc.html">Noir et blanc</a> : Présentation de tatouages noir et blanc réalisés par mes soins.
+                Page <a href="noir-blanc.php">Noir et blanc</a> : Présentation de tatouages noir et blanc réalisés par mes soins.
               </li>
               <li>
-                Page <a href="aquarelle.html">Aquarelle</a> : Présentation de tatouages réalisés avec un effet aquarelle.
+                Page <a href="aquarelle.php">Aquarelle</a> : Présentation de tatouages réalisés avec un effet aquarelle.
               </li>
               <li>
-                Page <a href="flash.html">Flash</a> : Présentation de tatouages proposés et réalisés.
+                Page <a href="flash.php">Flash</a> : Présentation de tatouages proposés et réalisés.
               </li>
               <li>
-                Page <a href="croquis.html">Croquis</a> : Exemple de croquis que j'ai réalisé et que je veux partager ; pouvant donner lieu à des flashs.
+                Page <a href="croquis.php">Croquis</a> : Exemple de croquis que j'ai réalisé et que je veux partager ; pouvant donner lieu à des flashs.
               </li>
               <li>
-                Page <a href="contact.html">Contact</a> : Page permettant de voir mes pages (Facebook, Instagram, ...) et de m'envoyer un message pour prendre rendez-vous ou autre.
+                Page <a href="contact.php">Contact</a> : Page permettant de voir mes pages (Facebook, Instagram, ...) et de m'envoyer un message pour prendre rendez-vous ou autre.
               </li>
             </ul>
           </article>

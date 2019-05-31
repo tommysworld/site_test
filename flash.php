@@ -43,65 +43,33 @@
       <main>
         <article>
           <h2>Réalisations flash</h2>
-          <div class="ligne">
-            <div class="article">
-              <a href="flash-tatouage-1.php" class="article"><img class="article" src="img/tatouage-flash-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur"/></a>
-              <p class="article">
+		    <div class="categorie">
+              <a href="flash-tatouage-1.php" class="article"><img class="categorie1" src="img/tatouage-flash-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur"/></a>					
+			  <a href="flash-tatouage-2.php" class="article"><img class="categorie2" src="img/tatouage-flash-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un flash harry potter"/></a>
+			</div>	 
+			<div class="lignecategorie">
+			  <p class="categorie1">
 			    <?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="5"';		
+                  $requete = 'select titre from content where idarticle>4 and idarticle<7';	
                   $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-		          echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>
-			  </p>
-            </div>
-            <div class="article">
-              <a href="flash-tatouage-2.php" class="article"><img class="article" src="img/tatouage-flash-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un flash harry potter"/></a>
-              <p class="article">
-			    <?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="6"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-				    echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>			  
-			  </p>
-            </div>
-          </div>
-          <div class="ligne">
-            <div class="article">
-              <a href="flash-tatouage-2.php"><img class="article" src="img/tatouage-flash-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un flash harry potter"/></a>
-              <p class="article">
-			  	<?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="6"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-		          echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>
-			  
-			  </p>
-            </div>
-            <div class="article">
-              <a href="flash-tatouage-1.php"><img class="article" src="img/tatouage-flash-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur"/></a>
-              <p class="article">
-			  	<?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="5"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-				    echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>			  
-			  </p>
-            </div>
-		    <div class="article">
-              <a href="flash-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-flash-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un flash harry potter"/></a>
-              <p class="article">
-                Nouveaux articles flash		  
-			  </p>
-            </div>
-          </div>
+                  while ($nbutilisateurs = $resultat->fetch()) {						
+		            echo $nbutilisateurs['titre'];
+				?>                                						
+                </p>					  					                 
+                <p class="categorie2">					
+				  <?php  							  
+				    };	
+                  ?>
+			    </p>								  
+			</div>	      
+            <div class="categorie">
+              <a href="flash-tatouage-nouveaux-articles.php" class="article"><img class="categorie1" src="img/tatouage-flash-1.jpg" title="Plus d'informations en cliquant" alt="img/tatouage-flash-1.jpg"/></a>					
+		    </div>	 
+			<div class="ligne">
+			  <p class="article">
+                Nouveaux articles tatouages flash                           						
+              </p>					  					                 							  
+		    </div>	
         </article>
       </main>
     </div>

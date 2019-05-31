@@ -16,6 +16,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width"/>
+		<meta name="description" content="Page récapitulant les nouveaux tatouages flashs realisés par Tommy" />
 	</head>
 	<body>
 		<header>
@@ -58,7 +59,7 @@
             // on affiche le résultat pour le visiteur			
 		    echo "<h2>".$nbutilisateurs['titre']."</h2>"."\n";
 		    ?>
-		    <img class="nouveauxarticles" src="img/tatouage-flash-1.jpg" title="Tatouage de fleur" alt="Tatouage de fleur"/>
+		    <img class="article" src="img/tatouage-flash-1.jpg" title="Tatouage de fleur" alt="Tatouage de fleur"/>
 		    <?php 
 		      echo "<p>".$nbutilisateurs['contenuarticle']."</p>\n";		                                                }
 		    ?>

@@ -56,7 +56,7 @@
             // on affiche le résultat pour le visiteur			
 		    echo "<h2>".$nbutilisateurs['titre']."</h2>"."\n";
 		    ?>
-		    <img class="nouveauxarticles" src="img/tatouage-noir-blanc-2.jpg" title="Tatouage d'un croissant fleuri" alt="Tatouage d'un croissant fleuri"/>
+		    <img class="article" src="img/tatouage-noir-blanc-2.jpg" title="Tatouage d'un croissant fleuri" alt="Tatouage d'un croissant fleuri"/>
 		    <?php 
 		      echo "<p>".$nbutilisateurs['contenuarticle']."</p>\n";		                                                }
 		    ?>

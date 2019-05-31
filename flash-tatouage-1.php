@@ -16,12 +16,13 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Page récapitulant les nouveaux tatouages flashs realisés par Tommy" />
 	</head>
 	<body>
 		<header>
 			<div class="banniere">
 				<?php include "inc/logo.inc.php" ?>
-				<h1 class="banniere">Tommy's World, les tatouages flashs</h1>
+				<h1 class="banniere">Tommy's World - Tatouage flash 1</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
@@ -42,21 +43,18 @@
         <article>
           <h2>
 		    <?php include("inc/connexion.inc.php");	
-		      $requete = 'select titre from content where idarticle="5"';		
+		      $requete = 'select titre, contenu from content where idarticle="5"';		
               $resultat = $con->query($requete);
 			  while ($nbutilisateurs = $resultat->fetch()) {
 		        echo $nbutilisateurs['titre'];
-			                                                   }	  
+			                                                     
 		    ?>
 		  </h2>
           <div class="produit">
             <img class="produit" src="img/tatouage-flash-1.jpg" title="Tatouage de fleur" alt="Tatouage de fleur"/>
             <div class="description">
               <p>
-				<?php include("inc/connexion.inc.php");	
-		          $requete = 'select contenuarticle from content where idarticle="5"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
+				<?php 
 				    echo $nbutilisateurs['contenuarticle'];
 			                                                   }	  
 		        ?>

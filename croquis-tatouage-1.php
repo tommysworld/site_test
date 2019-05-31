@@ -16,21 +16,22 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Page sur un croquis de fleur bleue ciel réalisé par l'artiste tatoueur Tommy, sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
 			<div class="banniere">
 				<?php include "inc/logo.inc.php" ?>
-				<h1 class="banniere">Tommy's World, les croquis de Tommy</h1>
+				<h1 class="banniere">Tommy's World - Croquis 1</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
-            <?php 
-              if (!isset($_COOKIE['croquis1'])) {
-                echo 'Bienvenue';
-              } else {};
-            ?>
-          </p>
+                    <?php 
+                      if (!isset($_COOKIE['croquis1'])) {
+                        echo 'Bienvenue';
+                      } else {};
+                    ?>
+                  </p>
 				</form>
 			</div>
 		</header>
@@ -42,22 +43,17 @@
         <article>
           <h2>
 		    <?php include("inc/connexion.inc.php");	
-		      $requete = 'select titre from content where idarticle="3"';		
+		      $requete = 'select titre, contenuarticle from content where idarticle="3"';		
               $resultat = $con->query($requete);
 			  while ($nbutilisateurs = $resultat->fetch()) {
-				  echo $nbutilisateurs['titre'];
-			  }	  
-		    ?>
-		  
+				  echo $nbutilisateurs['titre'];	  
+		    ?>		  
 		  </h2>
           <div class="produit">
             <img class="produit" src="img/tatouage-croquis-1.jpg" title="Croquis de tatouages avec une femme et un oiseau" alt="Croquis de tatouages avec une femme et un oiseau"/>
             <div class="description">
               <p>
-				<?php include("inc/connexion.inc.php");	
-		          $requete = 'select contenuarticle from content where idarticle="3"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
+				<?php 
 				    echo $nbutilisateurs['contenuarticle'];
 			                                                   }	  
 		        ?>

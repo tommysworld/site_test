@@ -42,64 +42,33 @@
       <main>
         <article>
           <h2>Croquis réalisés</h2>
-          <div class="ligne">
-            <div class="article">
-              <a href="croquis-tatouage-1.php" class="article"><img class="article" src="img/tatouage-croquis-1.jpg" title="Plus d'informations en cliquant" alt="Croquis d'un flash avec femme et oiseau"/></a>
-              <p class="article">
+		    <div class="categorie">
+              <a href="croquis-tatouage-1.php" class="article"><img class="categorie1" src="img/tatouage-croquis-1.jpg" title="Plus d'informations en cliquant" alt="Croquis d'un flash avec femme et oiseau"/></a>					
+			  <a href="croquis-tatouage-2.php" class="article"><img class="categorie2" src="img/tatouage-croquis-2.jpg" title="Plus d'informations en cliquant" alt="Croquis de multiple flashs"/></a>
+			</div>	 
+			<div class="lignecategorie">
+			  <p class="categorie1">
 			    <?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="3"';		
+                  $requete = 'select titre from content where idarticle>2 and idarticle<5';	
                   $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-				    echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>			  
-			  </p>
-            </div>
-            <div class="article">
-              <a href="croquis-tatouage-2.php" class="article"><img class="article" src="img/tatouage-croquis-2.jpg" title="Plus d'informations en cliquant" alt="Croquis de multiple flashs"/></a>
-              <p class="article">
-		        <?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="4"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
+                  while ($nbutilisateurs = $resultat->fetch()) {						
 		            echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>				  
-			  </p>
-            </div>
-          </div>
-          <div class="ligne">
-            <div class="article">
-              <a href="croquis-tatouage-2.php" class="article"><img class="article" src="img/tatouage-croquis-2.jpg" title="Plus d'informations en cliquant" alt="Croquis de multiple flashs"/></a>
-              <p class="article">
-			  	<?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="4"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-				    echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>	
-			  </p>
-            </div>
-            <div class="article">
-              <a href="croquis-tatouage-1.php" class="article"><img class="article" src="img/tatouage-croquis-1.jpg" title="Plus d'informations en cliquant" alt="Croquis d'un flash avec femme et oiseau"/></a>
-              <p class="article">
-		        <?php include("inc/connexion.inc.php");	
-		          $requete = 'select titre from content where idarticle="3"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
-		            echo $nbutilisateurs['titre'];
-			                                                   }	  
-		        ?>	
-			  </p>
-            </div>
-			<div class="article">
-              <a href="croquis-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-croquis-1.jpg" title="Plus d'informations en cliquant" alt="Croquis d'un flash avec femme et oiseau"/></a>
-              <p class="article">
-                Nouveaux articles croquis		  
-			  </p>
-            </div>
-          </div>
+				?>                                						
+                </p>					  					                 
+                <p class="categorie2">					
+				  <?php  							  
+				    };	
+                  ?>
+			    </p>								  
+			</div>	      
+            <div class="categorie">
+              <a href="croquis-tatouage-nouveaux-articles.php" class="article"><img class="categorie1" src="img/tatouage-croquis-1.jpg" title="Plus d'informations en cliquant" alt="img/tatouage-croquis-1.jpg"/></a>					
+		    </div>	 
+			<div class="ligne">
+			  <p class="article">
+                Nouveaux articles croquis tatouages                           						
+              </p>					  					                 							  
+		    </div>
         </article>
       </main>
     </div> 

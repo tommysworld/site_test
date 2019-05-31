@@ -41,63 +41,35 @@
       ?>
 			<article>
 				<h2>Réalisations noires et blanches</h2>
-				<div class="ligne">
-					<div class="article">
-						<a href="noir-blanc-tatouage-1.php" class="article"><img class="article" src="img/tatouage-noir-blanc-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de serpent avec lycoris"/></a>
-						<p class="article">
-						  <?php 
-                include("inc/connexion.inc.php");	
-                $requete = 'select titre from content where idarticle="7"';		
-                $resultat = $con->query($requete);
-                while ($nbutilisateurs = $resultat->fetch()) {
-                  echo $nbutilisateurs['titre'];
-                }	  
-              ?>						
-						</p>
-					</div>
-					<div class="article">
-						<a href="noir-blanc-tatouage-2.php" class="article"><img class="article" src="img/tatouage-noir-blanc-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un croissant fleuri"/></a>
-						<p class="article">
-              <?php 
-                include("inc/connexion.inc.php");	
-                $requete = 'select titre from content where idarticle="8"';		
-                $resultat = $con->query($requete);
-                while ($nbutilisateurs = $resultat->fetch()) {
-                  echo $nbutilisateurs['titre'];
-                }	  
-              ?>	
-						</p>
-					</div>
-				</div>
-				<div class="ligne">
-					<div class="article">
-						<a href="noir-blanc-tatouage-1.php" class="article"><img class="article" src="img/tatouage-noir-blanc-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de serpent avec lycoris"/></a>
-						<p class="article">
-						  <?php 
-                include("inc/connexion.inc.php");	
-                $requete = 'select titre from content where idarticle="7"';		
-                $resultat = $con->query($requete);
-                while ($nbutilisateurs = $resultat->fetch()) {
-                  echo $nbutilisateurs['titre'];			                                                             
-                }	  
-              ?>	
-						</p>
-					</div>
-					<div class="article">
-						<a href="noir-blanc-tatouage-2.php" class="article"><img class="article" src="img/tatouage-noir-blanc-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un croissant fleuri"/></a>
-						<p class="article">
-						  <?php 
-                include("inc/connexion.inc.php");	
-                $requete = 'select titre from content where idarticle="8"';		
-                $resultat = $con->query($requete);
-                while ($nbutilisateurs = $resultat->fetch()) {
-                  echo $nbutilisateurs['titre'];			                                                             
-                }	  
-		        ?>
-						</p>
-					</div>
-				</div>
+					<div class="categorie">
+                          <a href="noir-blanc-tatouage-1.php" class="article"><img class="categorie1" src="img/tatouage-noir-blanc-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de serpent avec lycoris"/></a>					
+						  <a href="noir-blanc-tatouage-2.php" class="article"><img class="categorie2" src="img/tatouage-noir-blanc-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un croissant fleuri"/></a>
+					</div>	 
+					<div class="lignecategorie">
+						 <p class="categorie1">
+						    <?php include("inc/connexion.inc.php");	
+                              $requete = 'select titre from content where idarticle>6 and idarticle<9';	
+                              $resultat = $con->query($requete);
+                              while ($nbutilisateurs = $resultat->fetch()) {						
+							    echo $nbutilisateurs['titre'];
+								?>                                						
+                          </p>					  					                 
+                          <p class="categorie2">					
+							<?php  							  
+							  };	
+                            ?>
+					      </p>								  
+					</div>	      
+                    <div class="categorie">
+                          <a href="noir-blanc-tatouage-nouveaux-articles.php" class="article"><img class="categorie1" src="img/tatouage-noir-blanc-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de serpent avec lycoris"/></a>					
+					</div>	 
+					<div class="ligne">
+						 <p class="article">
+                           Nouveaux articles tatouages noirs et blancs                            						
+                          </p>					  					                 							  
+					</div>					
 			</article>
+			
 		</div>
     <?php
       include "inc/footer.inc.php"

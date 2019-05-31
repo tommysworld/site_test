@@ -7,15 +7,15 @@
 
 <html lang='fr'>
 	<head>
-		<meta charset="UTF-8"/>
-		<title>Tommy's World - Contact</title>
-		<link href="css/style.css" rel ="stylesheet" type="text/css" />
+	<meta charset="UTF-8"/>
+	<title>Tommy's World - Contact</title>
+	<link href="css/style.css" rel ="stylesheet" type="text/css" />
     <link href="css/placement.css" rel ="stylesheet" type="text/css" />
     <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
     <link href="css/image.css" rel ="stylesheet" type="text/css" />
-		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
-		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
-		<meta name="viewport" content="width=device-width" />
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
+	<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
+	<meta name="viewport" content="width=device-width" />
     <meta name="description" content="Page de contact avec les liens vers les pages de Tommy ainsi qu'un formulaire de contact pour des messages" />
 	</head>
 	<body>

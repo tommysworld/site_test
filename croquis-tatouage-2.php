@@ -8,7 +8,7 @@
 <html lang='fr'>
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Tommy's World - Croquis 2</title>
+		<title>Tommy's World, croquis de quatre flashs de Tommy</title>
 		<link href="css/style.css" rel ="stylesheet" type="text/css" />
         <link href="css/placement.css" rel ="stylesheet" type="text/css" />
         <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
@@ -16,12 +16,13 @@
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Page de croquis de quatre flashs tous disponibles réalisée par l'artiste tatoueur Tommy sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
 			<div class="banniere">
 				<?php include "inc/logo.inc.php" ?>
-				<h1 class="banniere">Tommy's World, les croquis de Tommy</h1>
+				<h1 class="banniere">Tommy's World, croquis de quatre flashs de Tommy</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
@@ -42,21 +43,17 @@
         <article>
           <h2>
 		    <?php include("inc/connexion.inc.php");	
-		      $requete = 'select titre from content where idarticle="4"';		
+		      $requete = 'select titre, contenuarticle from content where idarticle="4"';		
               $resultat = $con->query($requete);
 			  while ($nbutilisateurs = $resultat->fetch()) {
-		        echo $nbutilisateurs['titre'];
-			  }	  
+		        echo $nbutilisateurs['titre'];	  
 		    ?>		  		  
 		  </h2>
           <div class="produit">
             <img class="produit" src="img/tatouage-croquis-2.jpg" title="Croquis de multiple flash" alt="Croquis de multiple flash"/>
             <div class="description">
               <p>
-				<?php include("inc/connexion.inc.php");	
-		          $requete = 'select contenuarticle from content where idarticle="4"';		
-                  $resultat = $con->query($requete);
-			      while ($nbutilisateurs = $resultat->fetch()) {
+				<?php 	
 				    echo $nbutilisateurs['contenuarticle'];
 			                                                   }	  
 		        ?>

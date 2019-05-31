@@ -12,10 +12,10 @@
         <link href="css/placement.css" rel ="stylesheet" type="text/css" />
         <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
         <link href="css/image.css" rel ="stylesheet" type="text/css" />
-		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'/>
 		<link rel="icon" type="image/png" href="img/logo_artiste_favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-        <meta name="description" content="Page récapitulant les tatouages avec un effet aquarelle réalisés par Tommy" />
+        <meta name="description" content="Page récapitulant les tatouages avec un effet aquarelle réalisés par l'artiste tatoueur Tommy ainsi que son univers, de son world, sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
@@ -25,13 +25,13 @@
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
-            <?php 
-              if (!isset($_COOKIE['aquarelle'])) {
-                echo 'Bienvenue';
-              }
-              else {};
-            ?>
-          </p>
+                    <?php 
+                      if (!isset($_COOKIE['aquarelle'])) {
+                        echo 'Bienvenue';
+                                                         }
+                        else {};
+                    ?>
+                  </p>
 				</form>
 			</div>
 		</header>
@@ -42,64 +42,33 @@
       <main>
         <article>
           <h2>Réalisations aquarelles</h2>
-          <div class="ligne">
-            <div class="article">
-              <a href="aquarelle-tatouage-1.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
-              <p class="article">
-                <?php include("inc/connexion.inc.php");	
-                  $requete = 'select titre from content where idarticle="1"';		
+		    <div class="categorie">
+              <a href="aquarelle-tatouage-1.php" class="article"><img class="categorie1" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>					
+			  <a href="aquarelle-tatouage-2.php" class="article"><img class="categorie2" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
+			</div>	 
+			<div class="lignecategorie">
+			  <p class="categorie1">
+			    <?php include("inc/connexion.inc.php");	
+                  $requete = 'select titre from content where idarticle>0 and idarticle<3';	
                   $resultat = $con->query($requete);
-                  while ($nbutilisateurs = $resultat->fetch()) {
-                    echo $nbutilisateurs['titre'];
-                  }	  
-                ?>			
-              </p>
-            </div>
-            <div class="article">
-              <a href="aquarelle-tatouage-2.php" class="article"><img class="article" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
-              <p class="article">
-                <?php include("inc/connexion.inc.php");	
-                  $requete = 'select titre from content where idarticle="2"';		
-                  $resultat = $con->query($requete);
-                  while ($nbutilisateurs = $resultat->fetch()) {
-                    echo $nbutilisateurs['titre'];
-                  }	  
-                ?>						
-              </p>
-            </div>
-          </div>
-          <div class="ligne">
-            <div class="article">
-              <a href="aquarelle-tatouage-2.php" class="article"><img class="article" src="img/tatouage-aquarelle-2.jpg" title="Plus d'informations en cliquant" alt="Tatouage d'un mandala"/></a>
-              <p class="article">
-                <?php include("inc/connexion.inc.php");	
-                  $requete = 'select titre from content where idarticle="1"';		
-                  $resultat = $con->query($requete);
-                  while ($nbutilisateurs = $resultat->fetch()) {
-                    echo $nbutilisateurs['titre'];
-                  }	  
-                ?>				
-              </p>
-            </div>
-            <div class="article">
-              <a href="aquarelle-tatouage-1.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
-              <p class="article">
-              <?php include("inc/connexion.inc.php");	
-                $requete = 'select titre from content where idarticle="2"';		
-                $resultat = $con->query($requete);
-                while ($nbutilisateurs = $resultat->fetch()) {
-                  echo $nbutilisateurs['titre'];
-                }	  
-              ?>			
-              </p>
-            </div>
-		    <div class="article">
-              <a href="aquarelle-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>
-              <p class="article">
-                Nouveaux articles aquarelles			
-			  </p>
-            </div>
-          </div>
+                  while ($nbutilisateurs = $resultat->fetch()) {						
+		            echo $nbutilisateurs['titre'];
+				?>                                						
+                </p>					  					                 
+                <p class="categorie2">					
+				  <?php  							  
+				    };	
+                  ?>
+			    </p>								  
+			</div>	      
+            <div class="categorie">
+               <a href="aquarelle-tatouage-nouveaux-articles.php" class="article"><img class="article" src="img/tatouage-aquarelle-1.jpg" title="Plus d'informations en cliquant" alt="Tatouage de fleur bleue"/></a>					
+		    </div>	 
+			<div class="ligne">
+			  <p class="article">
+                Nouveaux articles aquarelles tatouages                           						
+              </p>					  					                 							  
+		    </div>
         </article>
       </main>
     </div>

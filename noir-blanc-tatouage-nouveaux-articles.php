@@ -7,20 +7,21 @@
 <html lang='fr'>
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Tommy's World - Tatouage noir et blanc 2</title>
+		<title>Tommy's World - Nouveaux articles tatouage noir et blanc</title>
 		<link href="css/style.css" rel ="stylesheet" type="text/css" />
         <link href="css/placement.css" rel ="stylesheet" type="text/css" />
         <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
         <link href="css/image.css" rel ="stylesheet" type="text/css" />
-		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'/>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Page récapitulant les nouveaux articles sur les tatouages noirs et blanc réalisés par l'artiste tatoueur Tommy sur Orléans et ses environs" />
 	</head>
 	<body>
 		<header>
 			<div class="banniere">
 				<a href="index.php" class="logo"><img class="logo" src="img/logo-artiste.png" title="Retour à la page d'accueil" alt="Logo de l'artiste"/></a>
-				<h1 class="banniere">Tommy's World, les tatouages noirs et blancs</h1>
+				<h1 class="banniere">Tommy's World - Nouveaux articles tatouage noir et blanc</h1>
 				<form action="connexion.php">
 				  <input type="submit" value="Connexion" id="connexion">
 				  <p>
@@ -57,7 +58,7 @@
               // on affiche le résultat pour le visiteur			
 		      echo "<h2>".$nbutilisateurs['titre']."</h2>"."\n";
 		  ?>
-		  <img class="nouveauxarticles" src="img/tatouage-noir-blanc-1.jpg" title="Tatouage de serpent avec lycoris" alt="Tatouage de serpent avec lycoris"/>
+		  <img class="article" src="img/tatouage-noir-blanc-1.jpg" title="Tatouage de serpent avec lycoris" alt="Tatouage de serpent avec lycoris"/>
 		  <?php 
 		      echo "<p>".$nbutilisateurs['contenuarticle']."</p>\n";		                                                }
 		  ?>
