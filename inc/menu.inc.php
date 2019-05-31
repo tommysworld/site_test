@@ -1,9 +1,9 @@
 <nav class="menu">
   <ul class="menu">
-    <a href="noir-blanc.php" class="menu"><li class="menu">Noir et blanc</li></a>
-    <a href="aquarelle.php" class="menu"><li class="menu">Aquarelle</li></a>
-    <a href="flash.php" class="menu"><li class="menu">Flash</li></a>
-    <a href="croquis.php" class="menu"><li class="menu">Croquis</li></a>
-    <a href="contact.php" class="menu"><li class="menu">Contact</li></a>
+    <li class="menu"><a href="noir-blanc.php" class="menu">Noir et blanc</a></li>
+    <li class="menu"><a href="aquarelle.php" class="menu">Aquarelle</a></li>
+    <li class="menu"><a href="flash.php" class="menu">Flash</a></li>
+    <li class="menu"><a href="croquis.php" class="menu">Croquis</a></li>
+    <li class="menu"><a href="contact.php" class="menu">Contact</a></li>
   </ul>
 </nav>
