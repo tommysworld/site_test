@@ -16,6 +16,12 @@ div.banniere{
 	flex-direction: row;
 }
 
+div.categorie{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
 div.responsive{
 	display: flex;
 }
@@ -47,6 +53,8 @@ article{
 	padding: 1%;
 }
 
+/*Conteneurs*/
+
 div.presentation{
 	display: flex;
 }
@@ -74,6 +82,12 @@ div.description{
 div.ligne{
 	display: flex;
 	padding: 0.5%;
+}
+
+div.lignecategorie{
+	display: flex;
+	padding: 2.5%;
+	margin-left: 10%;
 }
 
 div.paragraphe{
@@ -118,26 +132,7 @@ section.informations{
   margin: auto;
 }
 
-#reset{
-  display: block;
-  margin: 1em auto;
-  width: 10%;
-  min-width: 5em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-}
-
-#connexion{
-  display: block;
-  margin: 1em auto;
-  width: 10%;
-  min-width: 6em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-  
-}
+/*Boutons*/
 
 #deconnexion{
   display: block;
@@ -150,16 +145,6 @@ section.informations{
   
 }
 
-#supprimer{
-  display: block;
-  margin: 1em auto;
-  width: 20%;
-  min-width: 7em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-  
-}
 #retour, #retour2 {
   display: block;
   margin: 1em auto;
@@ -171,10 +156,10 @@ section.informations{
   
 }
 
-#connexionadm{
+#ajouter, #supprimerarticle, #nouvelarticle, #supprimer, #connexionadm {
   display: block;
   margin: 1em auto;
-  width: 10%;
+  width: 15%;
   min-width: 6em;
   height: auto;
   border-style: outset;
@@ -182,53 +167,10 @@ section.informations{
   
 }
 
-#nouvelarticle{
+#modifier, #submit, #reset, #connexion {
   display: block;
   margin: 1em auto;
-  width: 20%;
-  min-width: 6em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-  
-}
-
-#ajouter{
-  display: block;
-  margin: 1em auto;
-  width: 20%;
-  min-width: 6em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-  
-}
-
-#supprimerarticle{
-  display: block;
-  margin: 1em auto;
-  width: 20%;
-  min-width: 6em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-  
-}
-
-#submit{
-  display: block;
-  margin: 1em auto;
-  width: 10%;
-  min-width: 5em;
-  height: auto;
-  border-style: outset;
-  border-radius: 5px;
-}
-
-#modifier{
-  display: block;
-  margin: 1em auto;
-  width: 10%;
+  width: 15%;
   min-width: 5em;
   height: auto;
   border-style: outset;
@@ -249,12 +191,24 @@ div.articles{
   flex-direction : column;
 }
 
+/*texte*/
+
 p.lien{
   margin: 0% 3%;
 }
 
 p.article{
   margin: auto;
+}
+
+p.categorie1{
+  margin: auto;
+  margin-left: 6%;
+}
+
+p.categorie2{
+  margin: auto;
+  margin-left: 29%;
 }
 
 p.textarea{
@@ -270,6 +224,8 @@ h1.banniere{
 	width: 80%;
 	margin: auto;
 }
+
+/*Pied de page*/
 
 footer.p{
   margin: 0.9em auto;

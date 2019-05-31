@@ -35,10 +35,22 @@ img.article{
 }
 
 img.nouveauxarticles{
-	width: 10%;
-	height: 10%;
-	margin: center;
+	width: 30%;
+	margin: auto;
 }
+
+img.categorie1{
+	width: 20%;
+	margin-left: 42%;
+
+}
+
+img.categorie2{
+	width: 25%;
+	margin-left: 20%;
+}
+
+
 
 /*Format animation*/
 a.menu li{
