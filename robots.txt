@@ -4,6 +4,11 @@ Disallow: inc
 Disallow: js 
 Disallow: connexion.php
 Disallow: message.php 
+Disallow: message2.php
+Disallow: mention_legale.php
+Disallow: backoffice.php
+Disallow: articlemodif.php
+
 Allow: /*.css?*
 
 Sitemap : https://tommy-s-world.000webhostapp.com/sitemap.xml

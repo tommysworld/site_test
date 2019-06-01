@@ -1,0 +1,4 @@
+
+*.zip
+*.sql
+inc/connexion.inc.php
