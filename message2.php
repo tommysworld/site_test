@@ -7,9 +7,9 @@
 		<meta charset="UTF-8"/>
 		<title>Tommy's World - Message</title>
 		<link href="css/style.css" rel ="stylesheet" type="text/css" />
-    <link href="css/placement.css" rel ="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
-    <link href="css/image.css" rel ="stylesheet" type="text/css" />
+        <link href="css/placement.css" rel ="stylesheet" type="text/css" />
+        <link href="css/responsive.css" rel ="stylesheet" type="text/css" />
+        <link href="css/image.css" rel ="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type='text/css'>
 		<link rel="icon" type="image/png" href="img/logo-artiste-favicon.png" />
 		<meta name="viewport" content="width=device-width" />
@@ -19,8 +19,9 @@
 			<div class="banniere">
 				<?php include "inc/logo.inc.php" ?>
 				<h1 class="banniere">Tommy's World, résultat du formulaire</h1>
-				<form action="connexion.php">
-				  <input type="submit" value="Connexion" id="connexion">
+                <form action="deconnexionadm.php">
+				  <input type="submit" value="Deconnexion" id="deconnexion">
+				  <?php echo $_SESSION['login']; ?>
 				</form>
 			</div>
 		</header>

@@ -20,9 +20,9 @@
 			<div class="banniere">
 				<?php include "inc/logo.inc.php" ?>
 				<h1 class="banniere">Tommy's World - Page de modification des articles</h1>
-				<form action="connexion.php">
-				  <input type="submit" value="Deconnexion" id="deconnexion"/>
-				  <?php echo htmlentities ($_SESSION['login']); ?>
+                <form action="deconnexionadm.php">
+				  <input type="submit" value="Deconnexion" id="deconnexion">
+				  <?php echo $_SESSION['login']; ?>
 				</form>
 			</div>
 		</header>

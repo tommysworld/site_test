@@ -32,7 +32,16 @@
         include "inc/menu.inc.php"
       ?>
       <article>
-      <?php if(isset($_GET["submit"])){ ?>
+        <?php if(isset($_GET["submit"]) AND ($_GET['numPortable']==NULL)) {
+	    ?>
+	    <script type="text/javascript">
+          window.location.href="contact.php";
+        </script>
+		
+		<?php
+		}
+		if(isset($_GET["submit"])){
+		?>
         <h2>Les informations suivantes ont été envoyées:</h2>
         <?php  
           $nomPrenom = htmlentities($_GET ['nomPrenom']);
@@ -130,34 +139,35 @@
         ?>	                         			 
         <?php // Affichage de la liste des messages pour l'utilisateur admin
           if(!isset($_GET["submit"])){
-            echo "<p>Liste des messages postés </p>";
-  
-            //nb de lignes contenu dans résultat
-            echo "<table border='1'>\n";
-            echo "<tr>\n";
-            echo "<td><p>Nom, prénom de l'utilisateur</p></td>";
-            echo "<td><p>Téléphone</p></td>";
-            echo "<td><p>Sujet du message</p></td>";
-            echo "<td><p>message</p></td>";
-            echo "<td><p>Email</p></td>";
-            echo "<td><p>Date de réception du message</p></td>";
-            echo "</tr>\n";
-  
+	    ?>
+        <p>Liste des messages postés </p>
+        <table>
+          <tr>
+            <td><p>Nom, prénom de l'utilisateur</p></td>
+            <td><p>Téléphone</p></td>
+            <td><p>Sujet du message</p></td>
+            <td><p>message</p></td>
+            <td><p>Email</p></td>
+            <td><p>Date de réception du message</p></td>
+          </tr>
+          <?php
             $requete = "select usermessage, telephone, sujetmessage, message, email, datereceptionmessage from message";			
             $resultat = $con->query($requete);
   
             while ($nbutilisateurs = $resultat->fetch()) {		
-              echo "<tr>\n";
-              echo "<td>".$nbutilisateurs['usermessage']. "</td>\n";
-              echo "<td>".$nbutilisateurs['telephone']. "</td>\n";
-              echo "<td>".$nbutilisateurs['sujetmessage']. "</td>\n";
-              echo "<td>".$nbutilisateurs['message']. "</td>\n";
-              echo "<td>".$nbutilisateurs['email']. "</td>\n";
-              echo "<td>".$nbutilisateurs['datereceptionmessage']."</a>";
-              echo "</tr>\n";
-            }
-            echo "</table>\n";		
-        ?>
+		  ?>
+          <tr>
+            <td><?php echo $nbutilisateurs['usermessage'] ?></td>
+            <td><?php echo $nbutilisateurs['telephone'] ?></td>
+            <td><?php echo $nbutilisateurs['sujetmessage'] ?></td>
+            <td><?php echo $nbutilisateurs['message'] ?></td>
+            <td><?php echo $nbutilisateurs['email'] ?></td>
+            <td><?php echo $nbutilisateurs['datereceptionmessage'] ?></td>
+          </tr>
+		  <?php
+            }	
+          ?>
+        </table>	
         <p class="bouton">
           <input class="retour" type="button" value="télécharger les messages sous le format csv" onclick="self.location.href='test.php'"/>	
           <input class="retour" type="button" value="Retour au backoffice" onclick="self.location.href='backoffice.php'"/>	
