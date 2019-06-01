@@ -119,6 +119,5 @@
     ?>
     <script src="js/formulaire.js"></script>
     <script src="js/fonction.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Jb8w4obBNXpcAVG7MnbE2qn5Klaua-M&callback=initialiseMap"></script>
-	</body>
+   	</body>
 </html>
